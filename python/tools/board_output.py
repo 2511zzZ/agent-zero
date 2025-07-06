@@ -1,43 +1,78 @@
 from dataclasses import dataclass, field
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from python.helpers.tool import Tool, Response
 import time
 from python.helpers import files
+import os
 
-# 画板上的单个元素（如计划、产物、备注等）
+# 计划中的单个节点
 @dataclass
-class BoardItem:
+class PlanNode:
     id: str
-    type: str  # 例如 plan, artifact, note
-    content: str
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    name: str
+    description: str
+    artifacts: List[Dict[str, Any]] = field(default_factory=list)  # 每个产物可包含 file/link
 
 # 画板整体状态
 @dataclass
 class BoardState:
-    items: List[BoardItem]
-    last_updated: float
+    plan: List[PlanNode] = field(default_factory=list)  # 计划的节点列表
+    final_artifacts: List[Dict[str, Any]] = field(default_factory=list)  # 最终产物
+    last_updated: float = 0.0
 
 class BoardOutputTool(Tool):
-    async def execute(self, items: List[dict] | None = None, **kwargs):
-        # items 为结构化的 BoardItem 字典列表
-        if items is None:
-            items = []
+    async def execute(self, plan: Optional[List[dict]] = None, final_artifacts: Optional[List[dict]] = None, chat_id: Optional[str] = None, **kwargs):
+        print(f"[BoardOutputTool] Called with plan={plan}, final_artifacts={final_artifacts}")
+        # 优先使用传入 chat_id，否则用 agent.context.id
+        cid = chat_id or getattr(self.agent.context, 'id', None) or 'default'
+        board_file = f"memory/board_{cid}.json"
         # 读取已有 board 状态
-        board_file = f"memory/board_{self.agent.agent_name}.json"
         try:
             board_data = files.read_file(board_file)
-            board_state = files.json.loads(board_data)
-            existing_items = {item['id']: BoardItem(**item) for item in board_state.get('items', [])}
-        except Exception:
-            existing_items = {}
-        # 合并新 items，id 相同则覆盖，否则追加
-        for item in items:
-            board_item = BoardItem(**item)
-            existing_items[board_item.id] = board_item
-        merged_items = list(existing_items.values())
-        board_state = BoardState(items=merged_items, last_updated=time.time())
-        # 持久化到文件
+            board_state_dict = files.json.loads(board_data)
+            print(f"[BoardOutputTool] Loaded existing board state: {board_state_dict}")
+            plan_nodes = [PlanNode(**node) for node in board_state_dict.get('plan', [])]
+            final_artifacts_list = board_state_dict.get('final_artifacts', [])
+        except Exception as e:
+            print(f"[BoardOutputTool] No existing board or failed to load: {e}")
+            plan_nodes = []
+            final_artifacts_list = []
+        # 增量合并 plan
+        if plan:
+            plan_map = {node.id: node for node in plan_nodes}
+            for node_dict in plan:
+                node_id = node_dict.get('id')
+                if not node_id:
+                    continue
+                if node_id in plan_map:
+                    node = plan_map[node_id]
+                    node.name = node_dict.get('name', node.name)
+                    node.description = node_dict.get('description', node.description)
+                    old_files = {a.get('file'): a for a in node.artifacts if 'file' in a}
+                    for art in node_dict.get('artifacts', []):
+                        fkey = art.get('file')
+                        if fkey and fkey not in old_files:
+                            node.artifacts.append(art)
+                    for art in node_dict.get('artifacts', []):
+                        fkey = art.get('file')
+                        if fkey:
+                            old_files[fkey] = art
+                    node.artifacts = list(old_files.values())
+                    print(f"[BoardOutputTool] Updated node {node_id}: {node}")
+                else:
+                    plan_map[node_id] = PlanNode(**node_dict)
+                    print(f"[BoardOutputTool] Added new node {node_id}: {node_dict}")
+            plan_nodes = list(plan_map.values())
+        # 增量合并 final_artifacts（以 file 字段去重）
+        if final_artifacts:
+            file_map = {a.get('file'): a for a in final_artifacts_list if 'file' in a}
+            for art in final_artifacts:
+                fkey = art.get('file')
+                if fkey:
+                    file_map[fkey] = art
+            final_artifacts_list = list(file_map.values())
+            print(f"[BoardOutputTool] Updated final_artifacts: {final_artifacts_list}")
+        board_state = BoardState(plan=plan_nodes, final_artifacts=final_artifacts_list, last_updated=int(time.time()))
         files.write_file(board_file, files.json.dumps(board_state, default=lambda o: o.__dict__, ensure_ascii=False))
-        # 返回当前 board 状态
-        return Response(message=f"Board updated with {len(merged_items)} items.", break_loop=False) 
+        print(f"[BoardOutputTool] Board state saved. Plan nodes: {len(plan_nodes)}, Final artifacts: {len(final_artifacts_list)}")
+        return Response(message=f"Board updated. Plan nodes: {len(plan_nodes)}, Final artifacts: {len(final_artifacts_list)}", break_loop=False) 
