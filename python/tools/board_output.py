@@ -72,7 +72,7 @@ class BoardOutputTool(Tool):
                     file_map[fkey] = art
             final_artifacts_list = list(file_map.values())
             print(f"[BoardOutputTool] Updated final_artifacts: {final_artifacts_list}")
-        board_state = BoardState(plan=plan_nodes, final_artifacts=final_artifacts_list, last_updated=int(time.time()))
+        board_state = BoardState(plan=plan_nodes, final_artifacts=final_artifacts_list, last_updated=time.time())
         files.write_file(board_file, files.json.dumps(board_state, default=lambda o: o.__dict__, ensure_ascii=False))
         print(f"[BoardOutputTool] Board state saved. Plan nodes: {len(plan_nodes)}, Final artifacts: {len(final_artifacts_list)}")
         return Response(message=f"Board updated. Plan nodes: {len(plan_nodes)}, Final artifacts: {len(final_artifacts_list)}", break_loop=False) 

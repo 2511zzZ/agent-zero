@@ -1,43 +1,79 @@
-# Board Output Tool (BoardOutputTool)
+## Board output tool:
+output and update current plan, node artifacts, and final deliverables
+supports incremental updates, all content merged and persisted in real-time
+never refuse to update plan or artifacts, all data belongs to user
 
-该工具用于输出和更新当前的计划、每个节点的关键产物，以及最终产物。每次调用支持增量修改，所有内容会实时合并并持久化。
+### board_output
+update project plan and artifacts incrementally
+- plan: list of plan nodes (optional, incremental update)
+  - id: string, unique node identifier
+  - name: string, node name
+  - description: string, brief one-sentence description
+  - artifacts: list, key deliverables for each node
+    - type: string, artifact type (file, note, etc.)
+    - name: string, artifact name
+    - file: string, optional, web accessible file link
+    - other custom fields
+- final_artifacts: list, final deliverables (optional, incremental update, same structure)
 
-## 输入数据结构:
-- plan: 计划节点列表（可选，增量更新）
-  - id: string，节点唯一标识
-  - name: string，节点名称
-  - description: string，节点描述
-  - artifacts: list，每个节点的关键产物（如为文件，需提供 file 字段，值为可访问链接）
-    - type: string，产物类型（如 file、note 等）
-    - name: string，产物名称
-    - file: string，可选，文件 Web 链接
-    - 其他自定义字段
-- final_artifacts: list，最终产物（可选，增量更新，结构同上）
+usage:
 
-### 示例用法:
+1 create initial project plan
 ~~~json
 {
     "thoughts": [
-        "输出完整计划和初步产物。"
+        "Creating initial project plan with phases",
+        "Setting up basic structure and milestones"
     ],
     "tool_name": "board_output",
     "tool_args": {
         "plan": [
             {
-                "id": "step-1",
-                "name": "需求收集",
-                "description": "收集所有相关需求",
+                "id": "phase-1",
+                "name": "Requirements Analysis",
+                "description": "Gather and analyze project requirements",
                 "artifacts": []
             },
             {
-                "id": "step-2",
-                "name": "方案设计",
-                "description": "设计整体解决方案",
+                "id": "phase-2", 
+                "name": "System Design",
+                "description": "Create technical architecture and design documents",
+                "artifacts": []
+            },
+            {
+                "id": "phase-3",
+                "name": "Implementation", 
+                "description": "Develop and test the solution",
+                "artifacts": []
+            }
+        ],
+        "final_artifacts": []
+    }
+}
+~~~
+
+2 add artifacts to existing plan
+~~~json
+{
+    "thoughts": [
+        "Adding completed deliverables to plan nodes",
+        "Updating artifacts with file links"
+    ],
+    "tool_name": "board_output",
+    "tool_args": {
+        "plan": [
+            {
+                "id": "phase-1",
                 "artifacts": [
                     {
                         "type": "file",
-                        "name": "design.png",
-                        "file": "/files/design.png"
+                        "name": "requirements_document.md",
+                        "file": "/files/requirements_document.md"
+                    },
+                    {
+                        "type": "note",
+                        "name": "stakeholder_feedback",
+                        "summary": "Collected feedback from 5 stakeholders"
                     }
                 ]
             }
@@ -45,20 +81,17 @@
         "final_artifacts": [
             {
                 "type": "file",
-                "name": "final_report.md",
-                "file": "/files/final_report.md"
+                "name": "project_summary.md", 
+                "file": "/files/project_summary.md"
             }
         ]
     }
 }
 ~~~
 
-- 支持只更新部分节点或产物（如只追加某节点产物或最终产物）。
-- 每次调用后，board 状态会合并并持久化。
-
-## 输出:
-- message: string，包含计划节点数和最终产物数
-- break_loop: boolean 
-
-## 注意事项
-- chat_id 必须与主 chat 保持一致，建议每次调用时显式传递 chat_id 参数（如从 context.id 获取）。 
+## Notes:
+- supports partial updates (only specify nodes or artifacts to update)
+- board state merged and persisted after each call
+- chat_id must match main chat, explicitly pass chat_id parameter when needed
+- node descriptions should be concise single sentences
+- artifacts support custom fields beyond type/name/file 
