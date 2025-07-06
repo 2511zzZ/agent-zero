@@ -1,0 +1,2602 @@
+{
+  "version": 1,
+  "metadata": {
+    "title": "压力测试数据",
+    "description": "包含50个节点的大型项目，用于测试性能",
+    "tags": [
+      "stress",
+      "performance",
+      "large"
+    ],
+    "created_at": 1751206617.927219,
+    "updated_at": 1751811417.927219,
+    "last_editor": "stress_tester"
+  },
+  "viewport": {
+    "x": -100,
+    "y": -50,
+    "scale": 0.5
+  },
+  "layout": {
+    "grid_size": 20,
+    "snap_to_grid": true,
+    "auto_layout": false
+  },
+  "nodes": {
+    "stress-node-1": {
+      "id": "stress-node-1",
+      "type": "deliverable",
+      "name": "Deliverable 1",
+      "description": "压力测试节点 #1 - 类型: deliverable",
+      "status": "in_progress",
+      "priority": "high",
+      "position": {
+        "x": 50,
+        "y": 50
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#6366F1",
+      "content": {
+        "artifacts": [
+          {
+            "id": "fafc169f-2e8a-42e9-b405-8292e073541b",
+            "type": "note",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751741992.926862,
+            "updated_at": 1751807860.9268632,
+            "content": "这是第1个备注内容。"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-1",
+          "deliverable"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 1,
+          "index": 1
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751216547.926864,
+      "updated_at": 1751728486.9268649
+    },
+    "stress-node-2": {
+      "id": "stress-node-2",
+      "type": "deliverable",
+      "name": "Deliverable 2",
+      "description": "压力测试节点 #2 - 类型: deliverable",
+      "status": "in_progress",
+      "priority": "high",
+      "position": {
+        "x": 250,
+        "y": 50
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EC4899",
+      "content": {
+        "artifacts": [
+          {
+            "id": "6bd122b5-ffa6-4828-840d-3f23306ee32e",
+            "type": "note",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751760021.92687,
+            "updated_at": 1751810903.92687,
+            "content": "这是第1个备注内容。"
+          },
+          {
+            "id": "c281d97a-5cc9-48e3-834e-b65772f34bce",
+            "type": "note",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751800029.9268742,
+            "updated_at": 1751810091.9268742,
+            "content": "这是第2个备注内容。"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-1",
+          "deliverable"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 1,
+          "index": 2
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751451857.9268749,
+      "updated_at": 1751780400.9268758
+    },
+    "stress-node-3": {
+      "id": "stress-node-3",
+      "type": "note",
+      "name": "Note 3",
+      "description": "压力测试节点 #3 - 类型: note",
+      "status": "pending",
+      "priority": "low",
+      "position": {
+        "x": 450,
+        "y": 50
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [
+          {
+            "id": "fec39367-9a14-4855-9224-961b04902d12",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751739147.926882,
+            "updated_at": 1751809520.926882,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-1",
+          "note"
+        ],
+        "text": "这是第3个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 1,
+          "index": 3
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751434463.926883,
+      "updated_at": 1751749484.9268842
+    },
+    "stress-node-4": {
+      "id": "stress-node-4",
+      "type": "plan",
+      "name": "Plan 4",
+      "description": "压力测试节点 #4 - 类型: plan",
+      "status": "in_progress",
+      "priority": "high",
+      "position": {
+        "x": 650,
+        "y": 50
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-1",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 1,
+          "index": 4
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751680626.926889,
+      "updated_at": 1751737418.926889
+    },
+    "stress-node-5": {
+      "id": "stress-node-5",
+      "type": "deliverable",
+      "name": "Deliverable 5",
+      "description": "压力测试节点 #5 - 类型: deliverable",
+      "status": "in_progress",
+      "priority": "medium",
+      "position": {
+        "x": 850,
+        "y": 50
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#8B5CF6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "d16257a4-44be-490d-b256-d9e57eb12a1a",
+            "type": "link",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751771143.9268942,
+            "updated_at": 1751810601.9268942,
+            "url": "https://example.com/resource_1"
+          },
+          {
+            "id": "62c1954c-3842-45e8-b0c6-69851ab545bc",
+            "type": "document",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751731744.9268968,
+            "updated_at": 1751808983.9268968,
+            "file_path": "/files/doc_2.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-1",
+          "deliverable"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 1,
+          "index": 5
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751598376.926898,
+      "updated_at": 1751753737.926898
+    },
+    "stress-node-6": {
+      "id": "stress-node-6",
+      "type": "milestone",
+      "name": "Milestone 6",
+      "description": "压力测试节点 #6 - 类型: milestone",
+      "status": "blocked",
+      "priority": "medium",
+      "position": {
+        "x": 1050,
+        "y": 50
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [
+          {
+            "id": "1a3d8b4b-55a7-40ec-b0b4-ee5282eb2355",
+            "type": "document",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751784799.926903,
+            "updated_at": 1751808536.926904,
+            "file_path": "/files/doc_1.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-1",
+          "milestone"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 1,
+          "index": 6
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751810459.9269052,
+      "updated_at": 1751744401.9269052
+    },
+    "stress-node-7": {
+      "id": "stress-node-7",
+      "type": "deliverable",
+      "name": "Deliverable 7",
+      "description": "压力测试节点 #7 - 类型: deliverable",
+      "status": "in_progress",
+      "priority": "critical",
+      "position": {
+        "x": 1250,
+        "y": 50
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#6366F1",
+      "content": {
+        "artifacts": [
+          {
+            "id": "789916b3-102d-48b2-87ad-fab160233fd4",
+            "type": "note",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751741920.9269109,
+            "updated_at": 1751811390.926912,
+            "content": "这是第1个备注内容。"
+          },
+          {
+            "id": "1de2d9a8-9249-4a93-91b5-91e94166d90d",
+            "type": "code",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751788752.926914,
+            "updated_at": 1751811233.9269152,
+            "content": "// 代码示例 2\nconsole.log('hello world');",
+            "file_path": "/code/example_2.js"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-1",
+          "deliverable"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 1,
+          "index": 7
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751371418.9269161,
+      "updated_at": 1751738373.9269161
+    },
+    "stress-node-8": {
+      "id": "stress-node-8",
+      "type": "milestone",
+      "name": "Milestone 8",
+      "description": "压力测试节点 #8 - 类型: milestone",
+      "status": "pending",
+      "priority": "low",
+      "position": {
+        "x": 1450,
+        "y": 50
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EC4899",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-1",
+          "milestone"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 1,
+          "index": 8
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751609142.92692,
+      "updated_at": 1751742065.92692
+    },
+    "stress-node-9": {
+      "id": "stress-node-9",
+      "type": "milestone",
+      "name": "Milestone 9",
+      "description": "压力测试节点 #9 - 类型: milestone",
+      "status": "in_progress",
+      "priority": "medium",
+      "position": {
+        "x": 1650,
+        "y": 50
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [
+          {
+            "id": "733a9ced-f2fb-43be-bf1e-7934317114a8",
+            "type": "note",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751756609.9269261,
+            "updated_at": 1751809733.926927,
+            "content": "这是第1个备注内容。"
+          },
+          {
+            "id": "cf278c7b-e5d2-42d1-88ae-cb9d7a30d0e3",
+            "type": "document",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751791857.92693,
+            "updated_at": 1751810103.92693,
+            "file_path": "/files/doc_2.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-1",
+          "milestone"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 1,
+          "index": 9
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751434606.926931,
+      "updated_at": 1751792360.926931
+    },
+    "stress-node-10": {
+      "id": "stress-node-10",
+      "type": "milestone",
+      "name": "Milestone 10",
+      "description": "压力测试节点 #10 - 类型: milestone",
+      "status": "completed",
+      "priority": "medium",
+      "position": {
+        "x": 1850,
+        "y": 50
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [
+          {
+            "id": "f75470e1-e77b-4957-8622-11eb2b3497dc",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751742617.9269361,
+            "updated_at": 1751810049.9269361,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "93ff64f0-e34e-49b4-9f47-0ba4be6d9cd1",
+            "type": "image",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751761873.9269388,
+            "updated_at": 1751810609.92694,
+            "file_path": "/images/screenshot_2.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-1",
+          "milestone"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 1,
+          "index": 10
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751658010.92694,
+      "updated_at": 1751762339.926941
+    },
+    "stress-node-11": {
+      "id": "stress-node-11",
+      "type": "note",
+      "name": "Note 11",
+      "description": "压力测试节点 #11 - 类型: note",
+      "status": "blocked",
+      "priority": "low",
+      "position": {
+        "x": 50,
+        "y": 230
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#10B981",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-2",
+          "note"
+        ],
+        "text": "这是第11个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 2,
+          "index": 11
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751452827.926944,
+      "updated_at": 1751806405.926944
+    },
+    "stress-node-12": {
+      "id": "stress-node-12",
+      "type": "note",
+      "name": "Note 12",
+      "description": "压力测试节点 #12 - 类型: note",
+      "status": "blocked",
+      "priority": "low",
+      "position": {
+        "x": 250,
+        "y": 230
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [
+          {
+            "id": "5b1d4734-e889-4497-94c2-95452229bc8a",
+            "type": "code",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751762667.926951,
+            "updated_at": 1751811075.926952,
+            "content": "// 代码示例 1\nconsole.log('hello world');",
+            "file_path": "/code/example_1.js"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-2",
+          "note"
+        ],
+        "text": "这是第12个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 2,
+          "index": 12
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751272454.926953,
+      "updated_at": 1751749116.926953
+    },
+    "stress-node-13": {
+      "id": "stress-node-13",
+      "type": "note",
+      "name": "Note 13",
+      "description": "压力测试节点 #13 - 类型: note",
+      "status": "blocked",
+      "priority": "medium",
+      "position": {
+        "x": 450,
+        "y": 230
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [
+          {
+            "id": "08824b89-b717-4aad-a079-58193964ce26",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751773051.926958,
+            "updated_at": 1751809361.926958,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "f1b33215-4896-4c14-a3a0-e77be9a8ea4c",
+            "type": "link",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751754915.926961,
+            "updated_at": 1751809250.926962,
+            "url": "https://example.com/resource_2"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-2",
+          "note"
+        ],
+        "text": "这是第13个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 2,
+          "index": 13
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751317944.9269629,
+      "updated_at": 1751765767.9269629
+    },
+    "stress-node-14": {
+      "id": "stress-node-14",
+      "type": "plan",
+      "name": "Plan 14",
+      "description": "压力测试节点 #14 - 类型: plan",
+      "status": "blocked",
+      "priority": "critical",
+      "position": {
+        "x": 650,
+        "y": 230
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#10B981",
+      "content": {
+        "artifacts": [
+          {
+            "id": "11faa850-ba5f-4ff8-89e7-f68007157f10",
+            "type": "code",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751771006.926969,
+            "updated_at": 1751807995.926969,
+            "content": "// 代码示例 1\nconsole.log('hello world');",
+            "file_path": "/code/example_1.js"
+          },
+          {
+            "id": "4799da27-55bc-410d-aa9a-17252b003f68",
+            "type": "link",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751745861.926972,
+            "updated_at": 1751808133.9269729,
+            "url": "https://example.com/resource_2"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-2",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 2,
+          "index": 14
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751372847.9269729,
+      "updated_at": 1751789801.926974
+    },
+    "stress-node-15": {
+      "id": "stress-node-15",
+      "type": "milestone",
+      "name": "Milestone 15",
+      "description": "压力测试节点 #15 - 类型: milestone",
+      "status": "pending",
+      "priority": "medium",
+      "position": {
+        "x": 850,
+        "y": 230
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#8B5CF6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "181bd37a-1ceb-472e-85f7-897d80c90d3e",
+            "type": "document",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751788911.926978,
+            "updated_at": 1751808151.926978,
+            "file_path": "/files/doc_1.pdf",
+            "mime_type": "application/pdf"
+          },
+          {
+            "id": "d79ac783-d6a1-45e3-bcd6-b9c8ae7a1375",
+            "type": "code",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751737855.9269812,
+            "updated_at": 1751810734.926982,
+            "content": "// 代码示例 2\nconsole.log('hello world');",
+            "file_path": "/code/example_2.js"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-2",
+          "milestone"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 2,
+          "index": 15
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751239701.9269829,
+      "updated_at": 1751754991.9269829
+    },
+    "stress-node-16": {
+      "id": "stress-node-16",
+      "type": "plan",
+      "name": "Plan 16",
+      "description": "压力测试节点 #16 - 类型: plan",
+      "status": "completed",
+      "priority": "low",
+      "position": {
+        "x": 1050,
+        "y": 230
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#6366F1",
+      "content": {
+        "artifacts": [
+          {
+            "id": "4410c4a0-d608-488c-be65-f75f6fecfe4a",
+            "type": "note",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751767970.9269881,
+            "updated_at": 1751811350.9269881,
+            "content": "这是第1个备注内容。"
+          },
+          {
+            "id": "85602ad6-aa53-493d-a763-99e75395f045",
+            "type": "link",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751792533.926991,
+            "updated_at": 1751809832.926991,
+            "url": "https://example.com/resource_2"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-2",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 2,
+          "index": 16
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751545242.926992,
+      "updated_at": 1751725954.926992
+    },
+    "stress-node-17": {
+      "id": "stress-node-17",
+      "type": "deliverable",
+      "name": "Deliverable 17",
+      "description": "压力测试节点 #17 - 类型: deliverable",
+      "status": "completed",
+      "priority": "high",
+      "position": {
+        "x": 1250,
+        "y": 230
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EC4899",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-2",
+          "deliverable"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 2,
+          "index": 17
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751777044.926995,
+      "updated_at": 1751734953.926995
+    },
+    "stress-node-18": {
+      "id": "stress-node-18",
+      "type": "plan",
+      "name": "Plan 18",
+      "description": "压力测试节点 #18 - 类型: plan",
+      "status": "completed",
+      "priority": "critical",
+      "position": {
+        "x": 1450,
+        "y": 230
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#3B82F6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "da3b200c-28d3-4011-912b-fc463dea285e",
+            "type": "note",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751759774.927001,
+            "updated_at": 1751809469.927001,
+            "content": "这是第1个备注内容。"
+          },
+          {
+            "id": "17c74d25-b15e-43ac-abe9-0f3bc580051f",
+            "type": "document",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751783126.9270039,
+            "updated_at": 1751810771.9270048,
+            "file_path": "/files/doc_2.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-2",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 2,
+          "index": 18
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751235908.9270048,
+      "updated_at": 1751740307.927006
+    },
+    "stress-node-19": {
+      "id": "stress-node-19",
+      "type": "note",
+      "name": "Note 19",
+      "description": "压力测试节点 #19 - 类型: note",
+      "status": "pending",
+      "priority": "critical",
+      "position": {
+        "x": 1650,
+        "y": 230
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-2",
+          "note"
+        ],
+        "text": "这是第19个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 2,
+          "index": 19
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751259796.927008,
+      "updated_at": 1751763191.927009
+    },
+    "stress-node-20": {
+      "id": "stress-node-20",
+      "type": "note",
+      "name": "Note 20",
+      "description": "压力测试节点 #20 - 类型: note",
+      "status": "blocked",
+      "priority": "critical",
+      "position": {
+        "x": 1850,
+        "y": 230
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EC4899",
+      "content": {
+        "artifacts": [
+          {
+            "id": "d0664040-78c1-4af7-87f0-08ef94fbe55f",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751739227.9270139,
+            "updated_at": 1751811178.9270148,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-2",
+          "note"
+        ],
+        "text": "这是第20个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 2,
+          "index": 20
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751290822.927016,
+      "updated_at": 1751756668.927016
+    },
+    "stress-node-21": {
+      "id": "stress-node-21",
+      "type": "plan",
+      "name": "Plan 21",
+      "description": "压力测试节点 #21 - 类型: plan",
+      "status": "pending",
+      "priority": "medium",
+      "position": {
+        "x": 50,
+        "y": 410
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#6366F1",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-3",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 3,
+          "index": 21
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751626303.9270191,
+      "updated_at": 1751748025.9270191
+    },
+    "stress-node-22": {
+      "id": "stress-node-22",
+      "type": "deliverable",
+      "name": "Deliverable 22",
+      "description": "压力测试节点 #22 - 类型: deliverable",
+      "status": "blocked",
+      "priority": "medium",
+      "position": {
+        "x": 250,
+        "y": 410
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-3",
+          "deliverable"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 3,
+          "index": 22
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751507076.927022,
+      "updated_at": 1751781758.927022
+    },
+    "stress-node-23": {
+      "id": "stress-node-23",
+      "type": "milestone",
+      "name": "Milestone 23",
+      "description": "压力测试节点 #23 - 类型: milestone",
+      "status": "completed",
+      "priority": "low",
+      "position": {
+        "x": 450,
+        "y": 410
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [
+          {
+            "id": "42215ae3-9a37-41c0-b805-ef45b908ace7",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751777485.927029,
+            "updated_at": 1751810764.927029,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "0692d0c7-f2e2-4802-8855-e163a6301c2e",
+            "type": "document",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751725348.927032,
+            "updated_at": 1751809706.9270332,
+            "file_path": "/files/doc_2.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-3",
+          "milestone"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 3,
+          "index": 23
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751568256.9270341,
+      "updated_at": 1751761964.9270341
+    },
+    "stress-node-24": {
+      "id": "stress-node-24",
+      "type": "deliverable",
+      "name": "Deliverable 24",
+      "description": "压力测试节点 #24 - 类型: deliverable",
+      "status": "in_progress",
+      "priority": "critical",
+      "position": {
+        "x": 650,
+        "y": 410
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EC4899",
+      "content": {
+        "artifacts": [
+          {
+            "id": "efb55e48-98b9-4bc9-8b89-78eda32d1f8f",
+            "type": "document",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751732199.92704,
+            "updated_at": 1751811357.927041,
+            "file_path": "/files/doc_1.pdf",
+            "mime_type": "application/pdf"
+          },
+          {
+            "id": "a69a05ec-f1dd-477d-b529-487ec31e007c",
+            "type": "code",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751759855.9270442,
+            "updated_at": 1751809319.9270442,
+            "content": "// 代码示例 2\nconsole.log('hello world');",
+            "file_path": "/code/example_2.js"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-3",
+          "deliverable"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 3,
+          "index": 24
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751472752.927045,
+      "updated_at": 1751762177.927045
+    },
+    "stress-node-25": {
+      "id": "stress-node-25",
+      "type": "plan",
+      "name": "Plan 25",
+      "description": "压力测试节点 #25 - 类型: plan",
+      "status": "completed",
+      "priority": "medium",
+      "position": {
+        "x": 850,
+        "y": 410
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#10B981",
+      "content": {
+        "artifacts": [
+          {
+            "id": "92e0256c-b414-4dd0-ad5c-a3757d47d686",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751764939.9270499,
+            "updated_at": 1751811410.927051,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "62a093a0-901f-44c8-afcf-62e4bb20a112",
+            "type": "document",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751790300.9270551,
+            "updated_at": 1751809350.9270551,
+            "file_path": "/files/doc_2.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-3",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 3,
+          "index": 25
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751333086.9270558,
+      "updated_at": 1751739378.9270558
+    },
+    "stress-node-26": {
+      "id": "stress-node-26",
+      "type": "milestone",
+      "name": "Milestone 26",
+      "description": "压力测试节点 #26 - 类型: milestone",
+      "status": "completed",
+      "priority": "critical",
+      "position": {
+        "x": 1050,
+        "y": 410
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#8B5CF6",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-3",
+          "milestone"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 3,
+          "index": 26
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751363531.92706,
+      "updated_at": 1751747042.92706
+    },
+    "stress-node-27": {
+      "id": "stress-node-27",
+      "type": "plan",
+      "name": "Plan 27",
+      "description": "压力测试节点 #27 - 类型: plan",
+      "status": "completed",
+      "priority": "medium",
+      "position": {
+        "x": 1250,
+        "y": 410
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#6366F1",
+      "content": {
+        "artifacts": [
+          {
+            "id": "ca431d16-aca1-405a-adbe-f9d014b3fbc8",
+            "type": "note",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751727182.9270651,
+            "updated_at": 1751810022.9270651,
+            "content": "这是第1个备注内容。"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-3",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 3,
+          "index": 27
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751721282.927066,
+      "updated_at": 1751780667.927066
+    },
+    "stress-node-28": {
+      "id": "stress-node-28",
+      "type": "milestone",
+      "name": "Milestone 28",
+      "description": "压力测试节点 #28 - 类型: milestone",
+      "status": "blocked",
+      "priority": "high",
+      "position": {
+        "x": 1450,
+        "y": 410
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#10B981",
+      "content": {
+        "artifacts": [
+          {
+            "id": "34565342-12c8-44a6-a640-9155a04889f6",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751739670.927072,
+            "updated_at": 1751809168.927072,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "0289ffc3-da3a-4cd8-a48a-223f62d5412b",
+            "type": "image",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751727768.9270751,
+            "updated_at": 1751809628.927077,
+            "file_path": "/images/screenshot_2.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-3",
+          "milestone"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 3,
+          "index": 28
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751448436.9270778,
+      "updated_at": 1751753720.9270778
+    },
+    "stress-node-29": {
+      "id": "stress-node-29",
+      "type": "plan",
+      "name": "Plan 29",
+      "description": "压力测试节点 #29 - 类型: plan",
+      "status": "pending",
+      "priority": "medium",
+      "position": {
+        "x": 1650,
+        "y": 410
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [
+          {
+            "id": "5bad7dc4-0f03-4698-86d3-762011a34fb1",
+            "type": "code",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751734412.927084,
+            "updated_at": 1751808806.927084,
+            "content": "// 代码示例 1\nconsole.log('hello world');",
+            "file_path": "/code/example_1.js"
+          },
+          {
+            "id": "18308cbd-8ad7-48cb-9662-dd7fe74aec83",
+            "type": "link",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751726616.927087,
+            "updated_at": 1751808533.927088,
+            "url": "https://example.com/resource_2"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-3",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 3,
+          "index": 29
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751683588.927089,
+      "updated_at": 1751810887.927089
+    },
+    "stress-node-30": {
+      "id": "stress-node-30",
+      "type": "note",
+      "name": "Note 30",
+      "description": "压力测试节点 #30 - 类型: note",
+      "status": "blocked",
+      "priority": "medium",
+      "position": {
+        "x": 1850,
+        "y": 410
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [
+          {
+            "id": "77496f7a-80ba-4ab8-8c09-ee156e4bddf2",
+            "type": "document",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751768143.927094,
+            "updated_at": 1751810277.927094,
+            "file_path": "/files/doc_1.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-3",
+          "note"
+        ],
+        "text": "这是第30个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 3,
+          "index": 30
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751307620.927095,
+      "updated_at": 1751744448.927095
+    },
+    "stress-node-31": {
+      "id": "stress-node-31",
+      "type": "note",
+      "name": "Note 31",
+      "description": "压力测试节点 #31 - 类型: note",
+      "status": "pending",
+      "priority": "critical",
+      "position": {
+        "x": 50,
+        "y": 590
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#3B82F6",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-4",
+          "note"
+        ],
+        "text": "这是第31个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 4,
+          "index": 31
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751637095.927098,
+      "updated_at": 1751779003.927098
+    },
+    "stress-node-32": {
+      "id": "stress-node-32",
+      "type": "plan",
+      "name": "Plan 32",
+      "description": "压力测试节点 #32 - 类型: plan",
+      "status": "completed",
+      "priority": "low",
+      "position": {
+        "x": 250,
+        "y": 590
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-4",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 4,
+          "index": 32
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751504307.927101,
+      "updated_at": 1751744280.927101
+    },
+    "stress-node-33": {
+      "id": "stress-node-33",
+      "type": "plan",
+      "name": "Plan 33",
+      "description": "压力测试节点 #33 - 类型: plan",
+      "status": "blocked",
+      "priority": "high",
+      "position": {
+        "x": 450,
+        "y": 590
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [
+          {
+            "id": "848f40cf-6d53-40c8-b68e-c2b2ca6ac0ce",
+            "type": "document",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751751301.927105,
+            "updated_at": 1751809634.9271061,
+            "file_path": "/files/doc_1.pdf",
+            "mime_type": "application/pdf"
+          },
+          {
+            "id": "5da9af36-0c1c-42a0-b601-39b717245e1d",
+            "type": "link",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751746421.927109,
+            "updated_at": 1751808638.927109,
+            "url": "https://example.com/resource_2"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-4",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 4,
+          "index": 33
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751794655.92711,
+      "updated_at": 1751797255.92711
+    },
+    "stress-node-34": {
+      "id": "stress-node-34",
+      "type": "note",
+      "name": "Note 34",
+      "description": "压力测试节点 #34 - 类型: note",
+      "status": "in_progress",
+      "priority": "medium",
+      "position": {
+        "x": 650,
+        "y": 590
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#6366F1",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-4",
+          "note"
+        ],
+        "text": "这是第34个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 4,
+          "index": 34
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751569115.927113,
+      "updated_at": 1751811086.927113
+    },
+    "stress-node-35": {
+      "id": "stress-node-35",
+      "type": "plan",
+      "name": "Plan 35",
+      "description": "压力测试节点 #35 - 类型: plan",
+      "status": "pending",
+      "priority": "medium",
+      "position": {
+        "x": 850,
+        "y": 590
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#6366F1",
+      "content": {
+        "artifacts": [
+          {
+            "id": "129ca119-c2f4-460c-a8ef-b29cf6a8af1a",
+            "type": "code",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751726458.927117,
+            "updated_at": 1751809141.927118,
+            "content": "// 代码示例 1\nconsole.log('hello world');",
+            "file_path": "/code/example_1.js"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-4",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 4,
+          "index": 35
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751652426.927119,
+      "updated_at": 1751775733.927119
+    },
+    "stress-node-36": {
+      "id": "stress-node-36",
+      "type": "milestone",
+      "name": "Milestone 36",
+      "description": "压力测试节点 #36 - 类型: milestone",
+      "status": "in_progress",
+      "priority": "high",
+      "position": {
+        "x": 1050,
+        "y": 590
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#6366F1",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-4",
+          "milestone"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 4,
+          "index": 36
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751543767.9271219,
+      "updated_at": 1751760606.9271219
+    },
+    "stress-node-37": {
+      "id": "stress-node-37",
+      "type": "deliverable",
+      "name": "Deliverable 37",
+      "description": "压力测试节点 #37 - 类型: deliverable",
+      "status": "completed",
+      "priority": "medium",
+      "position": {
+        "x": 1250,
+        "y": 590
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EC4899",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-4",
+          "deliverable"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 4,
+          "index": 37
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751575723.927125,
+      "updated_at": 1751749447.927125
+    },
+    "stress-node-38": {
+      "id": "stress-node-38",
+      "type": "plan",
+      "name": "Plan 38",
+      "description": "压力测试节点 #38 - 类型: plan",
+      "status": "in_progress",
+      "priority": "high",
+      "position": {
+        "x": 1450,
+        "y": 590
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#10B981",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-4",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 4,
+          "index": 38
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751789747.9271302,
+      "updated_at": 1751785940.9271302
+    },
+    "stress-node-39": {
+      "id": "stress-node-39",
+      "type": "note",
+      "name": "Note 39",
+      "description": "压力测试节点 #39 - 类型: note",
+      "status": "blocked",
+      "priority": "critical",
+      "position": {
+        "x": 1650,
+        "y": 590
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#8B5CF6",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-4",
+          "note"
+        ],
+        "text": "这是第39个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 4,
+          "index": 39
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751437709.9271328,
+      "updated_at": 1751754570.9271328
+    },
+    "stress-node-40": {
+      "id": "stress-node-40",
+      "type": "note",
+      "name": "Note 40",
+      "description": "压力测试节点 #40 - 类型: note",
+      "status": "completed",
+      "priority": "critical",
+      "position": {
+        "x": 1850,
+        "y": 590
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [
+          {
+            "id": "2745aad6-127a-4bf6-bf15-2043ece4c527",
+            "type": "code",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751760575.927139,
+            "updated_at": 1751809184.927139,
+            "content": "// 代码示例 1\nconsole.log('hello world');",
+            "file_path": "/code/example_1.js"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-4",
+          "note"
+        ],
+        "text": "这是第40个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 4,
+          "index": 40
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751220397.9271412,
+      "updated_at": 1751798172.9271412
+    },
+    "stress-node-41": {
+      "id": "stress-node-41",
+      "type": "deliverable",
+      "name": "Deliverable 41",
+      "description": "压力测试节点 #41 - 类型: deliverable",
+      "status": "pending",
+      "priority": "low",
+      "position": {
+        "x": 50,
+        "y": 770
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [
+          {
+            "id": "a64bf820-bd78-48c5-b8d4-17f6f4c30c16",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751797059.927147,
+            "updated_at": 1751811185.927147,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "9cbdb4a2-b263-4299-9781-51780937994d",
+            "type": "code",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751752037.92715,
+            "updated_at": 1751810717.92715,
+            "content": "// 代码示例 2\nconsole.log('hello world');",
+            "file_path": "/code/example_2.js"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-5",
+          "deliverable"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 5,
+          "index": 41
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751211550.9271512,
+      "updated_at": 1751728507.9271522
+    },
+    "stress-node-42": {
+      "id": "stress-node-42",
+      "type": "plan",
+      "name": "Plan 42",
+      "description": "压力测试节点 #42 - 类型: plan",
+      "status": "completed",
+      "priority": "critical",
+      "position": {
+        "x": 250,
+        "y": 770
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [
+          {
+            "id": "dc63d0d6-69a3-4171-a833-403c68b32e0b",
+            "type": "code",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751808863.927158,
+            "updated_at": 1751811225.927159,
+            "content": "// 代码示例 1\nconsole.log('hello world');",
+            "file_path": "/code/example_1.js"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-5",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 5,
+          "index": 42
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751393360.92716,
+      "updated_at": 1751753214.92716
+    },
+    "stress-node-43": {
+      "id": "stress-node-43",
+      "type": "deliverable",
+      "name": "Deliverable 43",
+      "description": "压力测试节点 #43 - 类型: deliverable",
+      "status": "blocked",
+      "priority": "high",
+      "position": {
+        "x": 450,
+        "y": 770
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#10B981",
+      "content": {
+        "artifacts": [
+          {
+            "id": "c86041fe-fce8-4efb-a5fb-5f291aca3b1d",
+            "type": "document",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751768804.927165,
+            "updated_at": 1751810673.927165,
+            "file_path": "/files/doc_1.pdf",
+            "mime_type": "application/pdf"
+          },
+          {
+            "id": "bf7f2c2a-d757-4f89-93d2-d20c308aaf42",
+            "type": "image",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751739413.927168,
+            "updated_at": 1751810544.927168,
+            "file_path": "/images/screenshot_2.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-5",
+          "deliverable"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 5,
+          "index": 43
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751372383.927169,
+      "updated_at": 1751729906.927169
+    },
+    "stress-node-44": {
+      "id": "stress-node-44",
+      "type": "plan",
+      "name": "Plan 44",
+      "description": "压力测试节点 #44 - 类型: plan",
+      "status": "pending",
+      "priority": "high",
+      "position": {
+        "x": 650,
+        "y": 770
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EC4899",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "stress",
+          "batch-5",
+          "plan"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 5,
+          "index": 44
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751456012.9271722,
+      "updated_at": 1751811377.9271731
+    },
+    "stress-node-45": {
+      "id": "stress-node-45",
+      "type": "milestone",
+      "name": "Milestone 45",
+      "description": "压力测试节点 #45 - 类型: milestone",
+      "status": "in_progress",
+      "priority": "low",
+      "position": {
+        "x": 850,
+        "y": 770
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#8B5CF6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "a6a73e9f-b160-45fe-b834-0c10a0f1f22b",
+            "type": "document",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751804493.927177,
+            "updated_at": 1751809883.927178,
+            "file_path": "/files/doc_1.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-5",
+          "milestone"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 5,
+          "index": 45
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751391177.927178,
+      "updated_at": 1751804900.927179
+    },
+    "stress-node-46": {
+      "id": "stress-node-46",
+      "type": "note",
+      "name": "Note 46",
+      "description": "压力测试节点 #46 - 类型: note",
+      "status": "in_progress",
+      "priority": "critical",
+      "position": {
+        "x": 1050,
+        "y": 770
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#8B5CF6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "61b7d3ce-7682-45fa-adef-01b4dc4fb34c",
+            "type": "note",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751769925.9271839,
+            "updated_at": 1751810743.9271848,
+            "content": "这是第1个备注内容。"
+          },
+          {
+            "id": "dc24db80-2a49-4be9-ba99-155508981f83",
+            "type": "document",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751757610.927188,
+            "updated_at": 1751809309.927188,
+            "file_path": "/files/doc_2.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-5",
+          "note"
+        ],
+        "text": "这是第46个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 5,
+          "index": 46
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751682685.9271889,
+      "updated_at": 1751800013.9271889
+    },
+    "stress-node-47": {
+      "id": "stress-node-47",
+      "type": "milestone",
+      "name": "Milestone 47",
+      "description": "压力测试节点 #47 - 类型: milestone",
+      "status": "pending",
+      "priority": "low",
+      "position": {
+        "x": 1250,
+        "y": 770
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EC4899",
+      "content": {
+        "artifacts": [
+          {
+            "id": "55c5b56f-4f3b-443b-b042-b269df91dd8d",
+            "type": "link",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751805106.927194,
+            "updated_at": 1751810608.927194,
+            "url": "https://example.com/resource_1"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-5",
+          "milestone"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 5,
+          "index": 47
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751652045.9271948,
+      "updated_at": 1751792661.9271948
+    },
+    "stress-node-48": {
+      "id": "stress-node-48",
+      "type": "deliverable",
+      "name": "Deliverable 48",
+      "description": "压力测试节点 #48 - 类型: deliverable",
+      "status": "completed",
+      "priority": "high",
+      "position": {
+        "x": 1450,
+        "y": 770
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [
+          {
+            "id": "eade11f8-79af-433a-8f85-3c0598d367c7",
+            "type": "code",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751808764.9272,
+            "updated_at": 1751810913.9272,
+            "content": "// 代码示例 1\nconsole.log('hello world');",
+            "file_path": "/code/example_1.js"
+          },
+          {
+            "id": "8bf0426f-242c-415e-99ca-146785efcca8",
+            "type": "code",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751736540.9272032,
+            "updated_at": 1751810841.9272032,
+            "content": "// 代码示例 2\nconsole.log('hello world');",
+            "file_path": "/code/example_2.js"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-5",
+          "deliverable"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 5,
+          "index": 48
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751585986.9272041,
+      "updated_at": 1751769400.927205
+    },
+    "stress-node-49": {
+      "id": "stress-node-49",
+      "type": "deliverable",
+      "name": "Deliverable 49",
+      "description": "压力测试节点 #49 - 类型: deliverable",
+      "status": "blocked",
+      "priority": "critical",
+      "position": {
+        "x": 1650,
+        "y": 770
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#6366F1",
+      "content": {
+        "artifacts": [
+          {
+            "id": "ddcf2e50-99da-4a0b-8ac0-197d784ea323",
+            "type": "document",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751748094.927209,
+            "updated_at": 1751810468.92721,
+            "file_path": "/files/doc_1.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-5",
+          "deliverable"
+        ],
+        "text": "",
+        "metadata": {
+          "batch": 5,
+          "index": 49
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751619130.927211,
+      "updated_at": 1751741737.927211
+    },
+    "stress-node-50": {
+      "id": "stress-node-50",
+      "type": "note",
+      "name": "Note 50",
+      "description": "压力测试节点 #50 - 类型: note",
+      "status": "blocked",
+      "priority": "medium",
+      "position": {
+        "x": 1850,
+        "y": 770
+      },
+      "size": {
+        "width": 180,
+        "height": 120
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [
+          {
+            "id": "022bfc13-1fec-4827-aeb1-b624f8b07b0b",
+            "type": "note",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751767586.927217,
+            "updated_at": 1751809743.927217,
+            "content": "这是第1个备注内容。"
+          }
+        ],
+        "tags": [
+          "stress",
+          "batch-5",
+          "note"
+        ],
+        "text": "这是第50个测试节点。\n包含一些示例内容。",
+        "metadata": {
+          "batch": 5,
+          "index": 50
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751739284.927218,
+      "updated_at": 1751758210.927218
+    }
+  },
+  "connections": {
+    "stress-conn-2": {
+      "id": "stress-conn-2",
+      "source_id": "stress-node-1",
+      "target_id": "stress-node-3",
+      "type": "flow",
+      "label": "连接 2",
+      "style": {
+        "color": "#EC4899",
+        "width": 2
+      }
+    },
+    "stress-conn-5": {
+      "id": "stress-conn-5",
+      "source_id": "stress-node-1",
+      "target_id": "stress-node-6",
+      "type": "dependency",
+      "label": "连接 5",
+      "style": {
+        "color": "#3B82F6",
+        "width": 3
+      }
+    },
+    "stress-conn-6": {
+      "id": "stress-conn-6",
+      "source_id": "stress-node-6",
+      "target_id": "stress-node-7",
+      "type": "reference",
+      "label": "连接 6",
+      "style": {
+        "color": "#6366F1",
+        "width": 3
+      }
+    },
+    "stress-conn-7": {
+      "id": "stress-conn-7",
+      "source_id": "stress-node-5",
+      "target_id": "stress-node-8",
+      "type": "reference",
+      "label": "连接 7",
+      "style": {
+        "color": "#3B82F6",
+        "width": 3
+      }
+    },
+    "stress-conn-10": {
+      "id": "stress-conn-10",
+      "source_id": "stress-node-1",
+      "target_id": "stress-node-11",
+      "type": "flow",
+      "label": "连接 10",
+      "style": {
+        "color": "#EC4899",
+        "width": 2
+      }
+    },
+    "stress-conn-16": {
+      "id": "stress-conn-16",
+      "source_id": "stress-node-15",
+      "target_id": "stress-node-17",
+      "type": "flow",
+      "label": "连接 16",
+      "style": {
+        "color": "#EF4444",
+        "width": 2
+      }
+    },
+    "stress-conn-18": {
+      "id": "stress-conn-18",
+      "source_id": "stress-node-12",
+      "target_id": "stress-node-19",
+      "type": "dependency",
+      "label": "连接 18",
+      "style": {
+        "color": "#3B82F6",
+        "width": 3
+      }
+    },
+    "stress-conn-22": {
+      "id": "stress-conn-22",
+      "source_id": "stress-node-7",
+      "target_id": "stress-node-23",
+      "type": "dependency",
+      "label": "连接 22",
+      "style": {
+        "color": "#6366F1",
+        "width": 2
+      }
+    },
+    "stress-conn-24": {
+      "id": "stress-conn-24",
+      "source_id": "stress-node-23",
+      "target_id": "stress-node-25",
+      "type": "reference",
+      "label": "连接 24",
+      "style": {
+        "color": "#6366F1",
+        "width": 1
+      }
+    },
+    "stress-conn-27": {
+      "id": "stress-conn-27",
+      "source_id": "stress-node-6",
+      "target_id": "stress-node-28",
+      "type": "reference",
+      "label": "连接 27",
+      "style": {
+        "color": "#3B82F6",
+        "width": 2
+      }
+    },
+    "stress-conn-36": {
+      "id": "stress-conn-36",
+      "source_id": "stress-node-10",
+      "target_id": "stress-node-37",
+      "type": "reference",
+      "label": "连接 36",
+      "style": {
+        "color": "#6366F1",
+        "width": 2
+      }
+    },
+    "stress-conn-38": {
+      "id": "stress-conn-38",
+      "source_id": "stress-node-2",
+      "target_id": "stress-node-39",
+      "type": "flow",
+      "label": "连接 38",
+      "style": {
+        "color": "#10B981",
+        "width": 3
+      }
+    },
+    "stress-conn-39": {
+      "id": "stress-conn-39",
+      "source_id": "stress-node-36",
+      "target_id": "stress-node-40",
+      "type": "reference",
+      "label": "连接 39",
+      "style": {
+        "color": "#10B981",
+        "width": 2
+      }
+    },
+    "stress-conn-48": {
+      "id": "stress-conn-48",
+      "source_id": "stress-node-6",
+      "target_id": "stress-node-49",
+      "type": "flow",
+      "label": "连接 48",
+      "style": {
+        "color": "#EF4444",
+        "width": 3
+      }
+    }
+  }
+}

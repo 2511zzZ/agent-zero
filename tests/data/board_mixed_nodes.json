@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "metadata": {
+    "title": "混合节点类型",
+    "description": "包含各种不同类型节点的示例",
+    "tags": [
+      "mixed",
+      "types",
+      "demo"
+    ],
+    "created_at": 1751552217.9268548,
+    "updated_at": 1751811417.9268548,
+    "last_editor": "designer"
+  },
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "scale": 1
+  },
+  "layout": {
+    "grid_size": 20,
+    "snap_to_grid": true,
+    "auto_layout": false
+  },
+  "nodes": {
+    "plan-1": {
+      "id": "plan-1",
+      "type": "plan",
+      "name": "市场调研",
+      "description": "分析目标市场和竞争对手",
+      "status": "completed",
+      "priority": "high",
+      "position": {
+        "x": 100,
+        "y": 100
+      },
+      "size": {
+        "width": 200,
+        "height": 150
+      },
+      "color": "#3B82F6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "174907a5-0e74-419d-981b-cfbfb5fba33f",
+            "type": "document",
+            "name": "市场调研报告",
+            "file_path": "/files/market_research.pdf",
+            "metadata": {
+              "pages": 25
+            },
+            "created_at": 1751811417.926846,
+            "updated_at": 1751811417.926846
+          }
+        ],
+        "tags": [
+          "market",
+          "research"
+        ],
+        "metadata": {}
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751638617.926847,
+      "updated_at": 1751811417.926847,
+      "completed_at": 1751725017.926847
+    },
+    "milestone-1": {
+      "id": "milestone-1",
+      "type": "milestone",
+      "name": "MVP发布",
+      "description": "最小可行产品发布里程碑",
+      "status": "pending",
+      "priority": "critical",
+      "position": {
+        "x": 400,
+        "y": 100
+      },
+      "size": {
+        "width": 250,
+        "height": 120
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "mvp",
+          "release"
+        ],
+        "metadata": {
+          "target_date": "2024-12-31"
+        }
+      },
+      "children_ids": [],
+      "dependencies": [
+        "plan-1"
+      ],
+      "created_at": 1751811417.926848,
+      "updated_at": 1751811417.926848,
+      "due_date": 1753021017.926848
+    },
+    "deliverable-1": {
+      "id": "deliverable-1",
+      "type": "deliverable",
+      "name": "API文档",
+      "description": "完整的API接口文档",
+      "status": "in_progress",
+      "priority": "medium",
+      "position": {
+        "x": 100,
+        "y": 300
+      },
+      "size": {
+        "width": 220,
+        "height": 130
+      },
+      "color": "#10B981",
+      "content": {
+        "artifacts": [
+          {
+            "id": "bb04183b-5c7b-416f-9831-a7ecd1515c97",
+            "type": "link",
+            "name": "Swagger文档",
+            "url": "https://api.example.com/docs",
+            "metadata": {
+              "version": "v1.0"
+            },
+            "created_at": 1751811417.92685,
+            "updated_at": 1751811417.92685
+          },
+          {
+            "id": "4325513f-cb5b-4da3-99b1-e47eb1947e76",
+            "type": "file",
+            "name": "API测试集合",
+            "file_path": "/files/api_tests.json",
+            "metadata": {
+              "format": "postman"
+            },
+            "created_at": 1751811417.926852,
+            "updated_at": 1751811417.926852
+          }
+        ],
+        "tags": [
+          "api",
+          "documentation"
+        ],
+        "metadata": {
+          "completion": 75
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751725017.9268532,
+      "updated_at": 1751811417.9268532
+    },
+    "note-1": {
+      "id": "note-1",
+      "type": "note",
+      "name": "技术决策",
+      "description": "技术选型和架构决策记录",
+      "status": "pending",
+      "priority": "low",
+      "position": {
+        "x": 400,
+        "y": 300
+      },
+      "size": {
+        "width": 250,
+        "height": 180
+      },
+      "color": "#FACC15",
+      "content": {
+        "text": "技术栈选择：\n\n前端: React + TypeScript\n后端: Python + FastAPI\n数据库: PostgreSQL\n缓存: Redis\n\n架构模式：微服务\n部署：Docker + Kubernetes",
+        "artifacts": [],
+        "tags": [
+          "tech",
+          "architecture",
+          "decisions"
+        ],
+        "metadata": {
+          "last_review": 1751811417.9268532
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751768217.926854,
+      "updated_at": 1751811417.926854
+    }
+  },
+  "connections": {
+    "conn-1": {
+      "id": "conn-1",
+      "source_id": "plan-1",
+      "target_id": "milestone-1",
+      "type": "dependency",
+      "label": "基于调研结果",
+      "style": {
+        "color": "#3B82F6",
+        "width": 2
+      }
+    },
+    "conn-2": {
+      "id": "conn-2",
+      "source_id": "deliverable-1",
+      "target_id": "milestone-1",
+      "type": "dependency",
+      "label": "发布前完成",
+      "style": {
+        "color": "#10B981",
+        "width": 2
+      }
+    },
+    "conn-3": {
+      "id": "conn-3",
+      "source_id": "note-1",
+      "target_id": "deliverable-1",
+      "type": "reference",
+      "label": "参考架构",
+      "style": {
+        "color": "#FACC15",
+        "width": 1,
+        "dash": [
+          5,
+          5
+        ]
+      }
+    }
+  }
+}

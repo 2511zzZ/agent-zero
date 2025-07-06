@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "metadata": {
+    "title": "简单项目计划",
+    "description": "用于测试基础功能的简单项目",
+    "tags": [
+      "test",
+      "simple"
+    ],
+    "created_at": 1751811417.926647,
+    "updated_at": 1751811417.9266481,
+    "last_editor": "test_generator"
+  },
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "scale": 1
+  },
+  "layout": {
+    "grid_size": 20,
+    "snap_to_grid": true,
+    "auto_layout": false
+  },
+  "nodes": {
+    "node-1": {
+      "id": "node-1",
+      "type": "plan",
+      "name": "项目启动",
+      "description": "项目启动和团队组建",
+      "status": "completed",
+      "priority": "high",
+      "position": {
+        "x": 100,
+        "y": 100
+      },
+      "size": {
+        "width": 200,
+        "height": 150
+      },
+      "color": "#10B981",
+      "content": {
+        "artifacts": [
+          {
+            "id": "6435934e-cef3-4c67-84d4-670e89b62593",
+            "type": "document",
+            "name": "项目章程",
+            "description": "项目启动文档",
+            "file_path": "/files/charter.pdf",
+            "metadata": {
+              "version": "1.0"
+            },
+            "created_at": 1751811417.926657,
+            "updated_at": 1751811417.926657
+          }
+        ],
+        "tags": [
+          "startup",
+          "planning"
+        ],
+        "metadata": {}
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751725017.926657,
+      "updated_at": 1751811417.9266582,
+      "completed_at": 1751807817.9266582
+    },
+    "node-2": {
+      "id": "node-2",
+      "type": "plan",
+      "name": "需求分析",
+      "description": "收集和分析业务需求",
+      "status": "in_progress",
+      "priority": "high",
+      "position": {
+        "x": 400,
+        "y": 100
+      },
+      "size": {
+        "width": 200,
+        "height": 150
+      },
+      "color": "#3B82F6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "c5a86e56-6272-4137-8179-97be20220e0c",
+            "type": "document",
+            "name": "需求规格书",
+            "description": "详细需求文档",
+            "file_path": "/files/requirements.md",
+            "metadata": {
+              "version": "1.2"
+            },
+            "created_at": 1751811417.926662,
+            "updated_at": 1751811417.926662
+          },
+          {
+            "id": "5c670696-0400-4a60-88a3-b78c77312550",
+            "type": "link",
+            "name": "原型设计",
+            "description": "Figma交互原型",
+            "url": "https://figma.com/proto/123",
+            "metadata": {
+              "tool": "figma"
+            },
+            "created_at": 1751811417.926665,
+            "updated_at": 1751811417.926665
+          }
+        ],
+        "tags": [
+          "requirements",
+          "analysis"
+        ],
+        "metadata": {
+          "progress": 60
+        }
+      },
+      "children_ids": [],
+      "dependencies": [
+        "node-1"
+      ],
+      "created_at": 1751768217.926666,
+      "updated_at": 1751811417.926666
+    }
+  },
+  "connections": {
+    "conn-1": {
+      "id": "conn-1",
+      "source_id": "node-1",
+      "target_id": "node-2",
+      "type": "dependency",
+      "label": "启动完成",
+      "style": {
+        "color": "#3B82F6",
+        "width": 2
+      }
+    }
+  }
+}

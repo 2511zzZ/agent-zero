@@ -3,6 +3,9 @@
 . "/ins/setup_venv.sh" "$@"
 . "/ins/copy_A0.sh" "$@"
 
+# Start Board UI development server if in development mode
+bash /exe/run_board_dev.sh &
+
 python /a0/prepare.py --dockerized=true
 python /a0/preload.py --dockerized=true
 

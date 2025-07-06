@@ -1,0 +1,1285 @@
+{
+  "version": 1,
+  "metadata": {
+    "title": "复杂项目计划",
+    "description": "包含多个阶段和任务的复杂项目",
+    "tags": [
+      "complex",
+      "multi-phase"
+    ],
+    "created_at": 1751379417.926843,
+    "updated_at": 1751811417.926843,
+    "last_editor": "project_manager"
+  },
+  "viewport": {
+    "x": -50,
+    "y": -25,
+    "scale": 0.7
+  },
+  "layout": {
+    "grid_size": 20,
+    "snap_to_grid": true,
+    "auto_layout": false
+  },
+  "nodes": {
+    "phase-1": {
+      "id": "phase-1",
+      "type": "milestone",
+      "name": "需求分析",
+      "description": "项目第1阶段",
+      "status": "completed",
+      "priority": "high",
+      "position": {
+        "x": 100,
+        "y": 50
+      },
+      "size": {
+        "width": 250,
+        "height": 120
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "phase-1"
+        ],
+        "metadata": {
+          "phase_number": 1
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751379417.92667,
+      "updated_at": 1751811417.92667,
+      "due_date": 1752416217.926671
+    },
+    "task-1-1": {
+      "id": "task-1-1",
+      "type": "plan",
+      "name": "需求分析任务1",
+      "description": "具体执行任务 - 需求分析的第1个任务",
+      "status": "in_progress",
+      "priority": "medium",
+      "position": {
+        "x": 50,
+        "y": 220
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [
+          {
+            "id": "9c013ab2-f949-4871-8e23-be6b2a531a43",
+            "type": "link",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751788939.926682,
+            "updated_at": 1751810754.926684,
+            "url": "https://example.com/resource_1"
+          },
+          {
+            "id": "5ffe2ef8-9c9f-48ff-93e2-ec41308aa3df",
+            "type": "code",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751788393.926689,
+            "updated_at": 1751810134.926689,
+            "content": "// 代码示例 2\nconsole.log('hello world');",
+            "file_path": "/code/example_2.js"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-1"
+        ],
+        "metadata": {
+          "task_number": 1
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751379417.926691,
+      "updated_at": 1751811417.926692
+    },
+    "task-1-2": {
+      "id": "task-1-2",
+      "type": "plan",
+      "name": "需求分析任务2",
+      "description": "具体执行任务 - 需求分析的第2个任务",
+      "status": "in_progress",
+      "priority": "medium",
+      "position": {
+        "x": 50,
+        "y": 360
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [
+          {
+            "id": "1ca763eb-7476-46d8-9117-2329089444b7",
+            "type": "note",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751757550.926698,
+            "updated_at": 1751808028.926699,
+            "content": "这是第1个备注内容。"
+          },
+          {
+            "id": "8a95f73d-0291-4e0a-b8fb-40dfad3840f2",
+            "type": "link",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751754471.9267032,
+            "updated_at": 1751809123.9267032,
+            "url": "https://example.com/resource_2"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-1"
+        ],
+        "metadata": {
+          "task_number": 2
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751383017.9267042,
+      "updated_at": 1751811417.926705
+    },
+    "task-1-3": {
+      "id": "task-1-3",
+      "type": "plan",
+      "name": "需求分析任务3",
+      "description": "具体执行任务 - 需求分析的第3个任务",
+      "status": "pending",
+      "priority": "low",
+      "position": {
+        "x": 50,
+        "y": 500
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#EF4444",
+      "content": {
+        "artifacts": [
+          {
+            "id": "b44db5b6-b899-40ed-abb1-ff1e74af4e90",
+            "type": "note",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751792450.926709,
+            "updated_at": 1751809248.9267101,
+            "content": "这是第1个备注内容。"
+          },
+          {
+            "id": "8dbf0762-6db6-41d8-9426-db1efd8ea3df",
+            "type": "image",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751743367.926713,
+            "updated_at": 1751809987.926713,
+            "file_path": "/images/screenshot_2.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "2846ec62-864c-4165-9b45-b9c1378770fb",
+            "type": "code",
+            "name": "产物3",
+            "description": "测试产物3",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751791849.926717,
+            "updated_at": 1751807874.926717,
+            "content": "// 代码示例 3\nconsole.log('hello world');",
+            "file_path": "/code/example_3.js"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-1"
+        ],
+        "metadata": {
+          "task_number": 3
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751386617.926719,
+      "updated_at": 1751811417.926719
+    },
+    "phase-2": {
+      "id": "phase-2",
+      "type": "milestone",
+      "name": "系统设计",
+      "description": "项目第2阶段",
+      "status": "in_progress",
+      "priority": "high",
+      "position": {
+        "x": 400,
+        "y": 50
+      },
+      "size": {
+        "width": 250,
+        "height": 120
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "phase-2"
+        ],
+        "metadata": {
+          "phase_number": 2
+        }
+      },
+      "children_ids": [],
+      "dependencies": [
+        "phase-1"
+      ],
+      "created_at": 1751465817.926721,
+      "updated_at": 1751811417.926721,
+      "due_date": 1753021017.926721
+    },
+    "task-2-1": {
+      "id": "task-2-1",
+      "type": "plan",
+      "name": "系统设计任务1",
+      "description": "具体执行任务 - 系统设计的第1个任务",
+      "status": "completed",
+      "priority": "medium",
+      "position": {
+        "x": 350,
+        "y": 220
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [
+          {
+            "id": "a442654f-f856-412c-8f96-aa3f91a8c179",
+            "type": "code",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751727723.9267251,
+            "updated_at": 1751811071.9267259,
+            "content": "// 代码示例 1\nconsole.log('hello world');",
+            "file_path": "/code/example_1.js"
+          },
+          {
+            "id": "67918f85-b7bc-46ff-8e3e-ed8de40d403a",
+            "type": "image",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751786098.926729,
+            "updated_at": 1751807873.926729,
+            "file_path": "/images/screenshot_2.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "2294d124-fdd8-4464-8882-e383c6dc02ec",
+            "type": "code",
+            "name": "产物3",
+            "description": "测试产物3",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751788389.926732,
+            "updated_at": 1751808893.926733,
+            "content": "// 代码示例 3\nconsole.log('hello world');",
+            "file_path": "/code/example_3.js"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-2"
+        ],
+        "metadata": {
+          "task_number": 1
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751465817.926733,
+      "updated_at": 1751811417.926734
+    },
+    "task-2-2": {
+      "id": "task-2-2",
+      "type": "plan",
+      "name": "系统设计任务2",
+      "description": "具体执行任务 - 系统设计的第2个任务",
+      "status": "completed",
+      "priority": "high",
+      "position": {
+        "x": 350,
+        "y": 360
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [
+          {
+            "id": "911a3a12-092c-4d51-b0bf-9d2ad4378009",
+            "type": "code",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751764003.926738,
+            "updated_at": 1751808744.926739,
+            "content": "// 代码示例 1\nconsole.log('hello world');",
+            "file_path": "/code/example_1.js"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-2"
+        ],
+        "metadata": {
+          "task_number": 2
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751469417.92674,
+      "updated_at": 1751811417.92674
+    },
+    "task-2-3": {
+      "id": "task-2-3",
+      "type": "plan",
+      "name": "系统设计任务3",
+      "description": "具体执行任务 - 系统设计的第3个任务",
+      "status": "completed",
+      "priority": "medium",
+      "position": {
+        "x": 350,
+        "y": 500
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#F59E0B",
+      "content": {
+        "artifacts": [
+          {
+            "id": "24fb9644-da3e-4d71-b10d-bc6ac08b93a1",
+            "type": "note",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751768440.926744,
+            "updated_at": 1751809924.9267452,
+            "content": "这是第1个备注内容。"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-2"
+        ],
+        "metadata": {
+          "task_number": 3
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751473017.9267461,
+      "updated_at": 1751811417.9267461
+    },
+    "phase-3": {
+      "id": "phase-3",
+      "type": "milestone",
+      "name": "开发实现",
+      "description": "项目第3阶段",
+      "status": "pending",
+      "priority": "high",
+      "position": {
+        "x": 700,
+        "y": 50
+      },
+      "size": {
+        "width": 250,
+        "height": 120
+      },
+      "color": "#10B981",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "phase-3"
+        ],
+        "metadata": {
+          "phase_number": 3
+        }
+      },
+      "children_ids": [],
+      "dependencies": [
+        "phase-2"
+      ],
+      "created_at": 1751552217.9267478,
+      "updated_at": 1751811417.9267478,
+      "due_date": 1753625817.9267478
+    },
+    "task-3-1": {
+      "id": "task-3-1",
+      "type": "plan",
+      "name": "开发实现任务1",
+      "description": "具体执行任务 - 开发实现的第1个任务",
+      "status": "in_progress",
+      "priority": "high",
+      "position": {
+        "x": 650,
+        "y": 220
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#10B981",
+      "content": {
+        "artifacts": [
+          {
+            "id": "f4ba260a-e240-4047-97fb-360413943e12",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751736174.926752,
+            "updated_at": 1751811115.926753,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "f6c87397-0071-4d66-8f11-ce329cc15acb",
+            "type": "document",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751766022.926757,
+            "updated_at": 1751810150.926757,
+            "file_path": "/files/doc_2.pdf",
+            "mime_type": "application/pdf"
+          },
+          {
+            "id": "0042269e-89e5-44bf-9f49-28864665077e",
+            "type": "note",
+            "name": "产物3",
+            "description": "测试产物3",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751761208.926761,
+            "updated_at": 1751810390.926761,
+            "content": "这是第3个备注内容。"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-3"
+        ],
+        "metadata": {
+          "task_number": 1
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751552217.9267619,
+      "updated_at": 1751811417.9267619
+    },
+    "task-3-2": {
+      "id": "task-3-2",
+      "type": "plan",
+      "name": "开发实现任务2",
+      "description": "具体执行任务 - 开发实现的第2个任务",
+      "status": "pending",
+      "priority": "low",
+      "position": {
+        "x": 650,
+        "y": 360
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#10B981",
+      "content": {
+        "artifacts": [
+          {
+            "id": "5e3cbc9d-ca5b-4e4d-96b8-8bfc3f119b41",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751791013.9267662,
+            "updated_at": 1751808228.9267662,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "678b8af9-3e8a-4143-b588-0931baca46d6",
+            "type": "image",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751753475.9267688,
+            "updated_at": 1751808656.92677,
+            "file_path": "/images/screenshot_2.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "f7266660-21a9-4f2f-98d9-e3b61a3fae41",
+            "type": "document",
+            "name": "产物3",
+            "description": "测试产物3",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751725902.926773,
+            "updated_at": 1751808743.926773,
+            "file_path": "/files/doc_3.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-3"
+        ],
+        "metadata": {
+          "task_number": 2
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751555817.926774,
+      "updated_at": 1751811417.926774
+    },
+    "task-3-3": {
+      "id": "task-3-3",
+      "type": "plan",
+      "name": "开发实现任务3",
+      "description": "具体执行任务 - 开发实现的第3个任务",
+      "status": "pending",
+      "priority": "low",
+      "position": {
+        "x": 650,
+        "y": 500
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#10B981",
+      "content": {
+        "artifacts": [
+          {
+            "id": "7226aff7-8bb3-4a20-b0a6-cb78f9a953e4",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751727937.926778,
+            "updated_at": 1751809632.92678,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-3"
+        ],
+        "metadata": {
+          "task_number": 3
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751559417.926781,
+      "updated_at": 1751811417.926781
+    },
+    "phase-4": {
+      "id": "phase-4",
+      "type": "milestone",
+      "name": "测试验证",
+      "description": "项目第4阶段",
+      "status": "pending",
+      "priority": "high",
+      "position": {
+        "x": 1000,
+        "y": 50
+      },
+      "size": {
+        "width": 250,
+        "height": 120
+      },
+      "color": "#3B82F6",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "phase-4"
+        ],
+        "metadata": {
+          "phase_number": 4
+        }
+      },
+      "children_ids": [],
+      "dependencies": [
+        "phase-3"
+      ],
+      "created_at": 1751638617.926783,
+      "updated_at": 1751811417.926783,
+      "due_date": 1754230617.926783
+    },
+    "task-4-1": {
+      "id": "task-4-1",
+      "type": "plan",
+      "name": "测试验证任务1",
+      "description": "具体执行任务 - 测试验证的第1个任务",
+      "status": "pending",
+      "priority": "medium",
+      "position": {
+        "x": 950,
+        "y": 220
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#3B82F6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "21004d60-a62f-4e8e-b66d-3226a2248fd2",
+            "type": "document",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751769546.9267871,
+            "updated_at": 1751808173.9267871,
+            "file_path": "/files/doc_1.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-4"
+        ],
+        "metadata": {
+          "task_number": 1
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751638617.926788,
+      "updated_at": 1751811417.926788
+    },
+    "task-4-2": {
+      "id": "task-4-2",
+      "type": "plan",
+      "name": "测试验证任务2",
+      "description": "具体执行任务 - 测试验证的第2个任务",
+      "status": "completed",
+      "priority": "high",
+      "position": {
+        "x": 950,
+        "y": 360
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#3B82F6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "736c8e48-7584-4c66-975e-c15ab6c80166",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751755576.926792,
+            "updated_at": 1751807974.9267929,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "a366377b-610d-4287-b75c-b86a733cf9de",
+            "type": "document",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751746358.926796,
+            "updated_at": 1751807884.926796,
+            "file_path": "/files/doc_2.pdf",
+            "mime_type": "application/pdf"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-4"
+        ],
+        "metadata": {
+          "task_number": 2
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751642217.9267972,
+      "updated_at": 1751811417.9267972
+    },
+    "task-4-3": {
+      "id": "task-4-3",
+      "type": "plan",
+      "name": "测试验证任务3",
+      "description": "具体执行任务 - 测试验证的第3个任务",
+      "status": "pending",
+      "priority": "low",
+      "position": {
+        "x": 950,
+        "y": 500
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#3B82F6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "d47cfb9f-82a2-4fe1-9638-63fc57cca932",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751749823.926801,
+            "updated_at": 1751811314.926801,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "1ae068ff-3798-413b-91cc-0a8fde34c8c6",
+            "type": "image",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751809269.926805,
+            "updated_at": 1751810981.926805,
+            "file_path": "/images/screenshot_2.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "1894ceea-8963-437c-bcf1-2453499a5a9c",
+            "type": "note",
+            "name": "产物3",
+            "description": "测试产物3",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751735050.926808,
+            "updated_at": 1751808940.926808,
+            "content": "这是第3个备注内容。"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-4"
+        ],
+        "metadata": {
+          "task_number": 3
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751645817.926809,
+      "updated_at": 1751811417.926809
+    },
+    "phase-5": {
+      "id": "phase-5",
+      "type": "milestone",
+      "name": "部署上线",
+      "description": "项目第5阶段",
+      "status": "pending",
+      "priority": "high",
+      "position": {
+        "x": 1300,
+        "y": 50
+      },
+      "size": {
+        "width": 250,
+        "height": 120
+      },
+      "color": "#8B5CF6",
+      "content": {
+        "artifacts": [],
+        "tags": [
+          "phase-5"
+        ],
+        "metadata": {
+          "phase_number": 5
+        }
+      },
+      "children_ids": [],
+      "dependencies": [
+        "phase-4"
+      ],
+      "created_at": 1751725017.926812,
+      "updated_at": 1751811417.926812,
+      "due_date": 1754835417.926812
+    },
+    "task-5-1": {
+      "id": "task-5-1",
+      "type": "plan",
+      "name": "部署上线任务1",
+      "description": "具体执行任务 - 部署上线的第1个任务",
+      "status": "completed",
+      "priority": "high",
+      "position": {
+        "x": 1250,
+        "y": 220
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#8B5CF6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "baebf2b7-3dd9-46c7-8a04-2c434bb926b9",
+            "type": "code",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751797904.926816,
+            "updated_at": 1751808488.926816,
+            "content": "// 代码示例 1\nconsole.log('hello world');",
+            "file_path": "/code/example_1.js"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-5"
+        ],
+        "metadata": {
+          "task_number": 1
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751725017.926817,
+      "updated_at": 1751811417.926817
+    },
+    "task-5-2": {
+      "id": "task-5-2",
+      "type": "plan",
+      "name": "部署上线任务2",
+      "description": "具体执行任务 - 部署上线的第2个任务",
+      "status": "completed",
+      "priority": "medium",
+      "position": {
+        "x": 1250,
+        "y": 360
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#8B5CF6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "f82ac6e9-7df5-4bec-a1e7-b74a1df79a77",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751759669.9268212,
+            "updated_at": 1751808581.926822,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "9a98928a-ea04-45dd-88c5-ab1d26cb6bac",
+            "type": "link",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751769601.926825,
+            "updated_at": 1751810926.926825,
+            "url": "https://example.com/resource_2"
+          },
+          {
+            "id": "59ff9bd9-a913-458c-beb7-723db634e7d9",
+            "type": "link",
+            "name": "产物3",
+            "description": "测试产物3",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751809136.9268281,
+            "updated_at": 1751808600.9268281,
+            "url": "https://example.com/resource_3"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-5"
+        ],
+        "metadata": {
+          "task_number": 2
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751728617.926829,
+      "updated_at": 1751811417.926829
+    },
+    "task-5-3": {
+      "id": "task-5-3",
+      "type": "plan",
+      "name": "部署上线任务3",
+      "description": "具体执行任务 - 部署上线的第3个任务",
+      "status": "in_progress",
+      "priority": "high",
+      "position": {
+        "x": 1250,
+        "y": 500
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "color": "#8B5CF6",
+      "content": {
+        "artifacts": [
+          {
+            "id": "fe001e30-c329-4e3b-a20f-2f0447142cbc",
+            "type": "image",
+            "name": "产物1",
+            "description": "测试产物1",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751806263.926833,
+            "updated_at": 1751808004.9268339,
+            "file_path": "/images/screenshot_1.png",
+            "mime_type": "image/png"
+          },
+          {
+            "id": "febd68be-f762-4be1-87ff-24888673963c",
+            "type": "link",
+            "name": "产物2",
+            "description": "测试产物2",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751785968.926837,
+            "updated_at": 1751810946.926837,
+            "url": "https://example.com/resource_2"
+          },
+          {
+            "id": "c9fd34e2-4f34-4260-aeae-2db54d792892",
+            "type": "link",
+            "name": "产物3",
+            "description": "测试产物3",
+            "metadata": {
+              "generated": true
+            },
+            "created_at": 1751796111.92684,
+            "updated_at": 1751809293.92684,
+            "url": "https://example.com/resource_3"
+          }
+        ],
+        "tags": [
+          "task",
+          "phase-5"
+        ],
+        "metadata": {
+          "task_number": 3
+        }
+      },
+      "children_ids": [],
+      "dependencies": [],
+      "created_at": 1751732217.926841,
+      "updated_at": 1751811417.926841
+    }
+  },
+  "connections": {
+    "conn-phase-1-task-1-1": {
+      "id": "conn-phase-1-task-1-1",
+      "source_id": "phase-1",
+      "target_id": "task-1-1",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#EF4444",
+        "width": 1
+      }
+    },
+    "conn-phase-1-task-1-2": {
+      "id": "conn-phase-1-task-1-2",
+      "source_id": "phase-1",
+      "target_id": "task-1-2",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#EF4444",
+        "width": 1
+      }
+    },
+    "conn-phase-1-task-1-3": {
+      "id": "conn-phase-1-task-1-3",
+      "source_id": "phase-1",
+      "target_id": "task-1-3",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#EF4444",
+        "width": 1
+      }
+    },
+    "conn-phase-2-task-2-1": {
+      "id": "conn-phase-2-task-2-1",
+      "source_id": "phase-2",
+      "target_id": "task-2-1",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#F59E0B",
+        "width": 1
+      }
+    },
+    "conn-phase-2-task-2-2": {
+      "id": "conn-phase-2-task-2-2",
+      "source_id": "phase-2",
+      "target_id": "task-2-2",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#F59E0B",
+        "width": 1
+      }
+    },
+    "conn-phase-2-task-2-3": {
+      "id": "conn-phase-2-task-2-3",
+      "source_id": "phase-2",
+      "target_id": "task-2-3",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#F59E0B",
+        "width": 1
+      }
+    },
+    "conn-phase-1-2": {
+      "id": "conn-phase-1-2",
+      "source_id": "phase-1",
+      "target_id": "phase-2",
+      "type": "dependency",
+      "label": "前置阶段",
+      "style": {
+        "color": "#666666",
+        "width": 3
+      }
+    },
+    "conn-phase-3-task-3-1": {
+      "id": "conn-phase-3-task-3-1",
+      "source_id": "phase-3",
+      "target_id": "task-3-1",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#10B981",
+        "width": 1
+      }
+    },
+    "conn-phase-3-task-3-2": {
+      "id": "conn-phase-3-task-3-2",
+      "source_id": "phase-3",
+      "target_id": "task-3-2",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#10B981",
+        "width": 1
+      }
+    },
+    "conn-phase-3-task-3-3": {
+      "id": "conn-phase-3-task-3-3",
+      "source_id": "phase-3",
+      "target_id": "task-3-3",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#10B981",
+        "width": 1
+      }
+    },
+    "conn-phase-2-3": {
+      "id": "conn-phase-2-3",
+      "source_id": "phase-2",
+      "target_id": "phase-3",
+      "type": "dependency",
+      "label": "前置阶段",
+      "style": {
+        "color": "#666666",
+        "width": 3
+      }
+    },
+    "conn-phase-4-task-4-1": {
+      "id": "conn-phase-4-task-4-1",
+      "source_id": "phase-4",
+      "target_id": "task-4-1",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#3B82F6",
+        "width": 1
+      }
+    },
+    "conn-phase-4-task-4-2": {
+      "id": "conn-phase-4-task-4-2",
+      "source_id": "phase-4",
+      "target_id": "task-4-2",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#3B82F6",
+        "width": 1
+      }
+    },
+    "conn-phase-4-task-4-3": {
+      "id": "conn-phase-4-task-4-3",
+      "source_id": "phase-4",
+      "target_id": "task-4-3",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#3B82F6",
+        "width": 1
+      }
+    },
+    "conn-phase-3-4": {
+      "id": "conn-phase-3-4",
+      "source_id": "phase-3",
+      "target_id": "phase-4",
+      "type": "dependency",
+      "label": "前置阶段",
+      "style": {
+        "color": "#666666",
+        "width": 3
+      }
+    },
+    "conn-phase-5-task-5-1": {
+      "id": "conn-phase-5-task-5-1",
+      "source_id": "phase-5",
+      "target_id": "task-5-1",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#8B5CF6",
+        "width": 1
+      }
+    },
+    "conn-phase-5-task-5-2": {
+      "id": "conn-phase-5-task-5-2",
+      "source_id": "phase-5",
+      "target_id": "task-5-2",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#8B5CF6",
+        "width": 1
+      }
+    },
+    "conn-phase-5-task-5-3": {
+      "id": "conn-phase-5-task-5-3",
+      "source_id": "phase-5",
+      "target_id": "task-5-3",
+      "type": "parent_child",
+      "label": "包含",
+      "style": {
+        "color": "#8B5CF6",
+        "width": 1
+      }
+    },
+    "conn-phase-4-5": {
+      "id": "conn-phase-4-5",
+      "source_id": "phase-4",
+      "target_id": "phase-5",
+      "type": "dependency",
+      "label": "前置阶段",
+      "style": {
+        "color": "#666666",
+        "width": 3
+      }
+    }
+  }
+}

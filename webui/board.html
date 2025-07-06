@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Agent Zero - Board UI</title>
+    <link rel="icon" type="image/svg+xml" href="public/favicon.svg">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/file_browser.css">
+    <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="css/modals2.css">
+    <link rel="stylesheet" href="css/speech.css">
+    <link rel="stylesheet" href="css/history.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Board specific styles -->
+    <style>
+        .board-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .board-header {
+            background: var(--color-panel);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--spacing-sm) var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .board-header-left {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .board-title h1 {
+            margin: 0;
+            font-size: var(--font-size-large);
+            color: var(--color-text);
+        }
+
+        .board-subtitle {
+            font-size: var(--font-size-small);
+            color: var(--color-secondary);
+            margin-left: var(--spacing-sm);
+        }
+
+        .board-action-btn {
+            background: var(--color-panel);
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: var(--font-size-smaller);
+            transition: all 0.2s;
+            margin-left: var(--spacing-xs);
+        }
+
+        .board-action-btn:hover {
+            background: var(--color-background);
+            border-color: var(--color-primary);
+        }
+
+        .board-main {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .board-canvas-container {
+            flex: 1;
+            position: relative;
+            background: var(--color-background);
+        }
+
+        .board-canvas {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Canvas grid background */
+        .board-canvas::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle, var(--color-border) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .canvas-toolbar {
+            position: absolute;
+            top: var(--spacing-md);
+            left: var(--spacing-md);
+            background: var(--color-panel);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: var(--spacing-xs);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .canvas-tool-btn {
+            background: transparent;
+            border: none;
+            color: var(--color-text);
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .canvas-tool-btn:hover {
+            background: var(--color-background);
+            color: var(--color-primary);
+        }
+
+        .toolbar-separator {
+            height: 1px;
+            background: var(--color-border);
+            margin: var(--spacing-xs) 0;
+        }
+
+        .chat-panel {
+            width: 400px;
+            background: var(--color-panel);
+            border-left: 1px solid var(--color-border);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        /* 移除 hidden 状态，聊天面板始终显示 */
+
+        .chat-header {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--color-background);
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            color: var(--color-text);
+            font-size: var(--font-size-normal);
+        }
+
+        .close-chat-btn {
+            background: none;
+            border: none;
+            color: var(--color-secondary);
+            cursor: pointer;
+            padding: var(--spacing-xs);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .close-chat-btn:hover {
+            background: var(--color-panel);
+            color: var(--color-text);
+        }
+
+        .chat-history {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--spacing-md);
+            background: var(--color-background);
+        }
+
+        .status-section {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--color-panel);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .connection-status {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+        }
+
+        .status-text {
+            font-size: var(--font-size-small);
+            color: var(--color-secondary);
+        }
+
+        .progress-container {
+            flex: 1;
+            margin-left: var(--spacing-md);
+        }
+
+        .progress-bar {
+            height: 2px;
+            background: var(--color-border);
+            border-radius: 1px;
+            overflow: hidden;
+        }
+
+        .chat-input-section {
+            padding: var(--spacing-md);
+            background: var(--color-panel);
+        }
+
+        .attachments-preview {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .attachment-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--color-background);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 6px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .attachment-name {
+            font-size: var(--font-size-small);
+            color: var(--color-text);
+        }
+
+        .remove-attachment {
+            background: none;
+            border: none;
+            color: var(--color-secondary);
+            cursor: pointer;
+            padding: 2px;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: flex-end;
+            gap: var(--spacing-xs);
+            background: var(--color-input);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: var(--spacing-xs);
+        }
+
+        .input-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .input-action-btn {
+            background: none;
+            border: none;
+            color: var(--color-secondary);
+            cursor: pointer;
+            padding: var(--spacing-xs);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .input-action-btn:hover {
+            background: var(--color-panel);
+            color: var(--color-text);
+        }
+
+        .chat-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--color-text);
+            font-family: inherit;
+            font-size: var(--font-size-normal);
+            resize: none;
+            outline: none;
+            min-height: 20px;
+            max-height: 120px;
+        }
+
+        .send-button {
+            background: var(--color-primary);
+            border: none;
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .send-button:hover {
+            background: var(--color-accent);
+        }
+
+        /* Board nodes styles */
+        .board-node {
+            position: absolute;
+            background: var(--color-message-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: var(--spacing-sm);
+            cursor: move;
+            user-select: none;
+            min-width: 160px;
+            min-height: 100px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+        }
+
+        .board-node:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .board-node.selected {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px var(--color-primary);
+        }
+
+        .node-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .node-type-icon {
+            font-size: var(--font-size-smaller);
+            color: var(--color-secondary);
+        }
+
+        .node-actions {
+            display: flex;
+            gap: var(--spacing-xs);
+        }
+
+        .node-action-btn {
+            background: none;
+            border: none;
+            color: var(--color-secondary);
+            cursor: pointer;
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        .node-title {
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-xs);
+            font-size: var(--font-size-smaller);
+        }
+
+        .node-description {
+            color: var(--color-secondary);
+            font-size: var(--font-size-small);
+            line-height: 1.4;
+        }
+
+        .node-status {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 500;
+            margin-top: var(--spacing-xs);
+        }
+
+        .node-status.pending { background: #fbbf24; color: #92400e; }
+        .node-status.in_progress { background: #3b82f6; color: white; }
+        .node-status.completed { background: #10b981; color: white; }
+        .node-status.blocked { background: #ef4444; color: white; }
+
+        /* Message styles */
+        .message {
+            margin-bottom: var(--spacing-md);
+            padding: var(--spacing-sm);
+            border-radius: 8px;
+            background: var(--color-message-bg);
+            border: 1px solid var(--color-border);
+        }
+
+        .message.user {
+            background: var(--color-panel);
+            border-color: var(--color-primary);
+        }
+
+        .message.agent {
+            background: var(--color-message-bg);
+        }
+
+        .message.system {
+            background: var(--color-accent);
+            color: white;
+            border-color: var(--color-accent);
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-xs);
+            font-size: var(--font-size-small);
+        }
+
+        .message-sender {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .message-time {
+            color: var(--color-secondary);
+            margin-left: auto;
+        }
+
+        .message-content {
+            color: var(--color-message-text);
+        }
+
+        .message-text {
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .message-attachments {
+            margin-top: var(--spacing-xs);
+        }
+
+        .attachment-item {
+            display: inline-block;
+            background: var(--color-background);
+            padding: var(--spacing-xs);
+            border-radius: 4px;
+            margin-right: var(--spacing-xs);
+            font-size: var(--font-size-small);
+        }
+
+        .attachment-item.image {
+            color: var(--color-primary);
+        }
+
+        .attachment-item.file {
+            color: var(--color-secondary);
+        }
+
+        .message-container {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .user-container {
+            /* User message specific styles */
+        }
+
+        .ai-container {
+            /* AI message specific styles */
+        }
+
+        .message-temp {
+            opacity: 0.7;
+        }
+
+        .shiny-text {
+            animation: shine 1.5s infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* 代码样式 */
+        .code-block {
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: var(--spacing-sm);
+            margin: var(--spacing-xs) 0;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: var(--font-size-small);
+        }
+
+        .inline-code {
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: 3px;
+            padding: 2px 4px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: var(--font-size-small);
+            color: var(--color-primary);
+        }
+
+        /* 思考消息样式 */
+        .message.thinking {
+            opacity: 0.8;
+            border-left: 3px solid var(--color-secondary);
+        }
+
+        .message.tool {
+            border-left: 3px solid var(--color-accent);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .chat-panel {
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                z-index: 1000;
+            }
+            
+            .canvas-toolbar {
+                position: fixed;
+                top: 80px;
+                left: 10px;
+                z-index: 100;
+            }
+        }
+    </style>
+
+    <script>
+        window.safeCall = function (name, ...args) {
+            if (window[name]) window[name](...args)
+        }
+    </script>
+
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="dark-mode">
+    <div class="container board-container">
+        <div id="sidebar-overlay" class="sidebar-overlay hidden"></div>
+        
+        <!-- 顶部工具栏 -->
+        <div class="board-header">
+            <div class="board-header-left">
+                <div class="board-title">
+                    <h1>Agent Zero Board</h1>
+                    <span class="board-subtitle">Visual Planning & Execution</span>
+                </div>
+            </div>
+            <div class="board-header-right">
+                <button class="board-action-btn" id="save-board" onclick="saveBoard()">
+                    <i class="fas fa-save"></i> Save
+                </button>
+                <button class="board-action-btn" id="reset-board" onclick="resetBoard()">
+                    <i class="fas fa-undo"></i> Reset
+                </button>
+                <button class="board-action-btn" id="board-settings" onclick="openBoardSettings()">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <div class="board-main">
+            <!-- 无限画布区域 -->
+            <div class="board-canvas-container">
+                <div id="board-canvas" class="board-canvas">
+                    <!-- 节点将在这里动态创建 -->
+                </div>
+                
+                <!-- 画布工具栏 -->
+                <div class="canvas-toolbar">
+                    <button class="canvas-tool-btn" id="add-plan" title="Add Plan Node" onclick="addNode('plan')">
+                        <i class="fas fa-map"></i>
+                    </button>
+                    <button class="canvas-tool-btn" id="add-milestone" title="Add Milestone" onclick="addNode('milestone')">
+                        <i class="fas fa-flag"></i>
+                    </button>
+                    <button class="canvas-tool-btn" id="add-deliverable" title="Add Deliverable" onclick="addNode('deliverable')">
+                        <i class="fas fa-box"></i>
+                    </button>
+                    <button class="canvas-tool-btn" id="add-note" title="Add Note" onclick="addNode('note')">
+                        <i class="fas fa-sticky-note"></i>
+                    </button>
+                    <div class="toolbar-separator"></div>
+                    <button class="canvas-tool-btn" id="fit-view" title="Fit to View" onclick="fitView()">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                    </button>
+                    <button class="canvas-tool-btn" id="center-view" title="Center View" onclick="centerView()">
+                        <i class="fas fa-crosshairs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 右侧聊天面板 -->
+            <div id="chat-panel" class="chat-panel">
+                <div class="chat-header">
+                    <h3><i class="fas fa-robot"></i> Agent Chat</h3>
+                </div>
+                
+                <!-- 聊天历史 -->
+                <div class="chat-history" id="chat-history">
+                    <!-- 消息将在这里显示 -->
+                </div>
+                
+                <!-- 状态栏 -->
+                <div class="status-section" id="status-section">
+                    <div class="status-bar">
+                        <div class="connection-status" id="connection-status">
+                            <span class="status-indicator"></span>
+                            <span class="status-text">Ready</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 输入区域 -->
+                <div class="chat-input-section" id="input-section">
+                    <!-- 附件预览 -->
+                    <div class="attachments-preview" id="attachments-preview" style="display: none;">
+                        <!-- 附件将通过 JS 动态添加 -->
+                    </div>
+                    
+                    <!-- 输入框 -->
+                    <div class="input-container">
+                        <div class="input-actions">
+                            <button class="input-action-btn" id="attach-file" title="Attach Files" onclick="attachFile()">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <button class="input-action-btn" id="voice-input" title="Voice Input" onclick="toggleVoiceInput()">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                        </div>
+                        <textarea 
+                            id="chat-input" 
+                            class="chat-input" 
+                            placeholder="Type your message... (Shift+Enter for new line, Enter to send)"
+                            rows="1"
+                            onkeydown="handleChatKeydown(event)"
+                            oninput="autoResizeInput()"></textarea>
+                        <button class="send-button" id="send-button" onclick="sendBoardMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 隐藏的文件输入 -->
+    <input type="file" id="file-input" multiple style="display: none;" onchange="handleFileSelect(event)">
+
+    <!-- Board UI JavaScript -->
+    <script>
+
+        // 全局变量
+        let boardData = {
+            nodes: {},
+            connections: {},
+            viewport: { x: 0, y: 0, scale: 1 }
+        };
+        let isDragging = false;
+        let dragOffset = { x: 0, y: 0 };
+        let currentContext = "";
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                // 预先获取 CSRF token
+                await getCsrfToken();
+                console.log('✅ CSRF token obtained');
+                
+                initializeBoard();
+                loadBoardData();
+                
+                // 显示初始化完成
+                console.log('✅ Board UI initialized successfully');
+                
+                // 添加一个欢迎消息
+                setTimeout(() => {
+                    displayMessage('Welcome to Agent Zero Board! 🚀\n\nClick the toolbar buttons to add nodes to your board, or start chatting with the agent.', 'system');
+                }, 500);
+                
+            } catch (error) {
+                console.error('❌ Initialization failed:', error);
+                displayMessage('Failed to initialize board UI: ' + error.message, 'system');
+            }
+        });
+
+        // 移除了聊天面板切换功能，因为聊天面板始终显示
+
+        // 添加节点
+        window.addNode = function(type) {
+            const nodeId = 'node-' + Date.now();
+            const node = {
+                id: nodeId,
+                type: type,
+                name: `New ${type.charAt(0).toUpperCase() + type.slice(1)}`,
+                description: `Description for ${type}`,
+                status: 'pending',
+                priority: 'medium',
+                position: { x: 100 + Math.random() * 200, y: 100 + Math.random() * 200 },
+                color: getNodeColor(type)
+            };
+            
+            boardData.nodes[nodeId] = node;
+            renderNode(node);
+            saveBoardData();
+        };
+
+        // 获取节点颜色
+        function getNodeColor(type) {
+            const colors = {
+                plan: '#3b82f6',
+                milestone: '#f59e0b', 
+                deliverable: '#10b981',
+                note: '#facc15'
+            };
+            return colors[type] || '#6b7280';
+        }
+
+        // 渲染节点
+        function renderNode(node) {
+            const canvas = document.getElementById('board-canvas');
+            const nodeElement = document.createElement('div');
+            nodeElement.className = 'board-node';
+            nodeElement.id = node.id;
+            nodeElement.style.left = node.position.x + 'px';
+            nodeElement.style.top = node.position.y + 'px';
+            nodeElement.style.borderColor = node.color;
+
+            const icons = {
+                plan: 'fas fa-map',
+                milestone: 'fas fa-flag',
+                deliverable: 'fas fa-box',
+                note: 'fas fa-sticky-note'
+            };
+
+            nodeElement.innerHTML = `
+                <div class="node-header">
+                    <i class="node-type-icon ${icons[node.type]}"></i>
+                    <div class="node-actions">
+                        <button class="node-action-btn" onclick="editNode('${node.id}')" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="node-action-btn" onclick="deleteNode('${node.id}')" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="node-title">${node.name}</div>
+                <div class="node-description">${node.description}</div>
+                <div class="node-status ${node.status}">${node.status}</div>
+            `;
+
+            // 添加拖拽功能
+            nodeElement.addEventListener('mousedown', startDrag);
+            
+            canvas.appendChild(nodeElement);
+        }
+
+        // 拖拽功能
+        function startDrag(e) {
+            if (e.target.closest('.node-action-btn')) return;
+            
+            isDragging = true;
+            const nodeElement = e.currentTarget;
+            const rect = nodeElement.getBoundingClientRect();
+            dragOffset.x = e.clientX - rect.left;
+            dragOffset.y = e.clientY - rect.top;
+            
+            nodeElement.classList.add('selected');
+            
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', stopDrag);
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+            
+            const selectedNode = document.querySelector('.board-node.selected');
+            if (!selectedNode) return;
+            
+            const canvas = document.getElementById('board-canvas');
+            const canvasRect = canvas.getBoundingClientRect();
+            
+            const x = e.clientX - canvasRect.left - dragOffset.x;
+            const y = e.clientY - canvasRect.top - dragOffset.y;
+            
+            selectedNode.style.left = Math.max(0, x) + 'px';
+            selectedNode.style.top = Math.max(0, y) + 'px';
+            
+            // 更新数据
+            const nodeId = selectedNode.id;
+            if (boardData.nodes[nodeId]) {
+                boardData.nodes[nodeId].position.x = x;
+                boardData.nodes[nodeId].position.y = y;
+            }
+        }
+
+        function stopDrag() {
+            isDragging = false;
+            document.removeEventListener('mousemove', drag);
+            document.removeEventListener('mouseup', stopDrag);
+            
+            const selectedNode = document.querySelector('.board-node.selected');
+            if (selectedNode) {
+                selectedNode.classList.remove('selected');
+                saveBoardData();
+            }
+        }
+
+        // 删除节点
+        window.deleteNode = function(nodeId) {
+            if (confirm('Are you sure you want to delete this node?')) {
+                const nodeElement = document.getElementById(nodeId);
+                if (nodeElement) {
+                    nodeElement.remove();
+                }
+                delete boardData.nodes[nodeId];
+                saveBoardData();
+            }
+        };
+
+        // 编辑节点 (简化版)
+        window.editNode = function(nodeId) {
+            const node = boardData.nodes[nodeId];
+            if (!node) return;
+            
+            const newName = prompt('Enter node name:', node.name);
+            if (newName !== null) {
+                node.name = newName;
+                const nodeElement = document.getElementById(nodeId);
+                const titleElement = nodeElement.querySelector('.node-title');
+                titleElement.textContent = newName;
+                saveBoardData();
+            }
+        };
+
+        // 保存/加载数据
+        async function saveBoardData() {
+            try {
+                // 构造nodes数据
+                const nodes = Object.values(boardData.nodes).map(node => ({
+                    id: node.id,
+                    type: node.type,
+                    name: node.name,
+                    description: node.description,
+                    status: node.status,
+                    priority: node.priority,
+                    position: node.position,
+                    color: node.color,
+                    size: node.size || { width: 200, height: 150 },
+                    content: node.content || { text: node.description || '', artifacts: [], links: [], tags: [], metadata: {} }
+                }));
+                
+                const response = await fetchWithCsrf('/board_output_enhanced', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        operation: 'update',
+                        nodes: nodes,
+                        connections: Object.values(boardData.connections || {}),
+                        viewport: boardData.viewport,
+                        metadata: boardData.metadata || { title: 'Board', description: '' },
+                        chat_id: currentContext
+                    })
+                });
+                
+                if (response.ok) {
+                    console.log('✅ Board data saved successfully');
+                } else {
+                    console.error('❌ Failed to save board data:', response.status);
+                }
+                
+            } catch (error) {
+                console.error('❌ Error saving board data:', error);
+            }
+        }
+
+        async function loadBoardData() {
+            try {
+                // 首先尝试从轮询获取最新数据
+                await pollBoardData();
+                console.log('📊 Initial board data loaded');
+            } catch (error) {
+                console.error('❌ Error loading board data:', error);
+            }
+        }
+
+        // 画布操作
+        window.fitView = function() {
+            console.log('Fit view');
+        };
+
+        window.centerView = function() {
+            console.log('Center view');
+        };
+
+        // 保存/重置面板
+        window.saveBoard = function() {
+            saveBoardData();
+            alert('Board saved!');
+        };
+
+        window.resetBoard = function() {
+            if (confirm('Are you sure you want to reset the board?')) {
+                boardData = { nodes: {}, connections: {}, viewport: { x: 0, y: 0, scale: 1 } };
+                document.getElementById('board-canvas').innerHTML = '';
+            }
+        };
+
+        window.openBoardSettings = function() {
+            alert('Board settings - Coming soon!');
+        };
+
+        // CSRF token 管理
+        let csrfToken = null;
+        
+        async function getCsrfToken() {
+            if (csrfToken) return csrfToken;
+            try {
+                const response = await fetch('/csrf_token', {
+                    credentials: 'same-origin'
+                });
+                const data = await response.json();
+                csrfToken = data.token;
+                return csrfToken;
+            } catch (error) {
+                console.error('Error getting CSRF token:', error);
+                return null;
+            }
+        }
+        
+        // 带 CSRF 保护的 fetch
+        async function fetchWithCsrf(url, options = {}) {
+            const token = await getCsrfToken();
+            
+            const finalOptions = {
+                ...options,
+                credentials: 'same-origin',
+                headers: {
+                    ...options.headers,
+                    'X-CSRF-Token': token
+                }
+            };
+            
+            const response = await fetch(url, finalOptions);
+            
+            // 如果是 403 错误，清除 token 并重试一次
+            if (response.status === 403 && csrfToken) {
+                csrfToken = null;
+                const newToken = await getCsrfToken();
+                finalOptions.headers['X-CSRF-Token'] = newToken;
+                return await fetch(url, finalOptions);
+            }
+            
+            return response;
+        }
+
+        // 聊天功能
+        window.sendBoardMessage = async function() {
+            const chatInput = document.getElementById('chat-input');
+            const message = chatInput.value.trim();
+            
+            if (!message && attachments.length === 0) return;
+            
+            try {
+                const messageId = generateGUID();
+                
+                // 显示用户消息
+                displayUserMessage(messageId, message, attachments);
+                
+                let response;
+                
+                if (attachments.length > 0) {
+                    // 有附件的消息
+                    const formData = new FormData();
+                    formData.append('text', message);
+                    formData.append('context', currentContext);
+                    formData.append('message_id', messageId);
+                    
+                    attachments.forEach(file => {
+                        formData.append('attachments', file);
+                    });
+                    
+                    response = await fetchWithCsrf('/message_async', {
+                        method: 'POST',
+                        body: formData
+                    });
+                } else {
+                    // 纯文本消息
+                    const data = {
+                        text: message,
+                        context: currentContext,
+                        message_id: messageId,
+                    };
+                    
+                    response = await fetchWithCsrf('/message_async', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+                }
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                // 处理响应
+                const jsonResponse = await response.json();
+                if (jsonResponse && jsonResponse.context) {
+                    currentContext = jsonResponse.context;
+                }
+                
+                // 清空输入
+                chatInput.value = '';
+                attachments = [];
+                updateAttachmentsDisplay();
+                autoResizeInput();
+                
+                // 重置轮询参数并开始轮询
+                lastLogVersion = 0;
+                startMainPolling();
+                
+            } catch (error) {
+                console.error('Error sending message:', error);
+                displayMessage('Error sending message: ' + error.message, 'system');
+            }
+        };
+        
+        // 轮询系统（复制自原始 webui）
+        let lastLogVersion = 0;
+        let lastLogGuid = '';
+        let pollingActive = false;
+        
+        async function poll() {
+            let updated = false;
+            try {
+                const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                
+                const data = {
+                    log_from: lastLogVersion,
+                    context: currentContext || null,
+                    timezone: timezone,
+                };
+                
+                const response = await fetchWithCsrf('/poll', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (!response.ok) {
+                    console.error('Poll response not ok:', response.status);
+                    return false;
+                }
+                
+                const pollResponse = await response.json();
+                
+                // 检查响应是否有效
+                if (!pollResponse) {
+                    console.error('Invalid response from poll endpoint');
+                    return false;
+                }
+                
+                // 设置上下文
+                if (!currentContext) {
+                    currentContext = pollResponse.context;
+                }
+                if (pollResponse.context != currentContext) {
+                    return false; // 跳过已过期的轮询
+                }
+                
+                // 检查日志版本变化
+                if (lastLogGuid != pollResponse.log_guid) {
+                    // 清空聊天历史
+                    document.getElementById('chat-history').innerHTML = '';
+                    lastLogVersion = 0;
+                }
+                
+                if (lastLogVersion != pollResponse.log_version) {
+                    updated = true;
+                    for (const log of pollResponse.logs) {
+                        const messageId = log.id || log.no;
+                        setMessage(messageId, log.type, log.heading, log.content, log.temp, log.kvps);
+                        
+                        // 检查是否是 board_output 工具调用
+                        if (log.type === 'tool' && (log.heading === 'board_output' || log.heading === 'board_output_enhanced')) {
+                            handleBoardOutputTool(log);
+                        }
+                    }
+                }
+                
+                lastLogVersion = pollResponse.log_version;
+                lastLogGuid = pollResponse.log_guid;
+                
+                updateProgress(pollResponse.log_progress, pollResponse.log_progress_active);
+                
+            } catch (error) {
+                console.error('Poll error:', error);
+            }
+            
+            return updated;
+        }
+        
+        // 消息渲染函数（支持流式输出）
+        function setMessage(id, type, heading, content, temp, kvps = null) {
+            let messageContainer = document.getElementById(`message-${id}`);
+            
+            if (messageContainer) {
+                // 不重新渲染用户消息
+                if (type === 'user') {
+                    return;
+                }
+                // 对于其他类型，更新内容（实现流式输出）
+                updateMessageContent(messageContainer, type, heading, content);
+            } else {
+                // 创建新消息容器
+                const sender = type === 'user' ? 'user' : 'ai';
+                messageContainer = document.createElement('div');
+                messageContainer.id = `message-${id}`;
+                messageContainer.classList.add('message-container', `${sender}-container`);
+                if (temp) messageContainer.classList.add('message-temp');
+                
+                // 渲染新消息
+                renderMessage(messageContainer, type, heading, content, kvps);
+                
+                // 添加到聊天历史
+                document.getElementById('chat-history').appendChild(messageContainer);
+            }
+            
+            // 自动滚动
+            const chatHistory = document.getElementById('chat-history');
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+        
+        // 渲染消息内容
+        function renderMessage(container, type, heading, content, kvps) {
+            let messageClass = 'message';
+            let iconClass = 'fas fa-robot';
+            let senderName = 'Agent';
+            
+            if (type === 'thinking') {
+                messageClass += ' agent thinking';
+                iconClass = 'fas fa-brain';
+                senderName = 'Agent Thinking';
+            } else if (type === 'tool') {
+                messageClass += ' tool';
+                iconClass = 'fas fa-tools';
+                senderName = `Tool: ${heading || 'Unknown'}`;
+            } else if (type === 'response') {
+                messageClass += ' agent';
+                iconClass = 'fas fa-robot';
+                senderName = 'Agent';
+            } else if (type === 'agent') {
+                messageClass += ' agent';
+                iconClass = 'fas fa-cog';
+                senderName = 'Agent';
+            } else {
+                messageClass += ' agent';
+            }
+            
+            container.innerHTML = `
+                <div class="${messageClass}">
+                    <div class="message-header">
+                        <i class="${iconClass}"></i>
+                        <span class="message-sender">${senderName}</span>
+                        <span class="message-time">${new Date().toLocaleTimeString()}</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-text">${processMessageContent(content)}</div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // 更新消息内容（用于流式输出）
+        function updateMessageContent(container, type, heading, content) {
+            const messageTextElement = container.querySelector('.message-text');
+            if (messageTextElement) {
+                messageTextElement.innerHTML = processMessageContent(content);
+            }
+        }
+        
+        // 处理消息内容（支持Markdown等）
+        function processMessageContent(content) {
+            if (!content) return '';
+            
+            // 基本的HTML转义和换行处理
+            let processed = escapeHtml(content);
+            processed = processed.replace(/\n/g, '<br>');
+            
+            // 简单的代码块处理
+            processed = processed.replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre class="code-block"><code>$2</code></pre>');
+            processed = processed.replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>');
+            
+            // 简单的粗体和斜体
+            processed = processed.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            processed = processed.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            
+            return processed;
+        }
+        
+        function updateProgress(progress, active) {
+            const progressBar = document.getElementById('progress-bar');
+            if (!progressBar) return;
+            
+            if (!progress) progress = '';
+            
+            if (!active) {
+                progressBar.classList.remove('shiny-text');
+            } else {
+                progressBar.classList.add('shiny-text');
+            }
+            
+            if (progressBar.innerHTML != progress) {
+                progressBar.innerHTML = progress;
+            }
+        }
+        
+        // 启动主轮询
+        async function startMainPolling() {
+            if (pollingActive) return;
+            pollingActive = true;
+            
+            const shortInterval = 25;
+            const longInterval = 250;
+            const shortIntervalPeriod = 100;
+            let shortIntervalCount = 0;
+            
+            async function _doPoll() {
+                if (!pollingActive) return;
+                
+                let nextInterval = longInterval;
+                
+                try {
+                    const result = await poll();
+                    if (result) shortIntervalCount = shortIntervalPeriod;
+                    if (shortIntervalCount > 0) shortIntervalCount--;
+                    nextInterval = shortIntervalCount > 0 ? shortInterval : longInterval;
+                } catch (error) {
+                    console.error('Polling error:', error);
+                }
+                
+                setTimeout(_doPoll, nextInterval);
+            }
+            
+            _doPoll();
+        }
+        
+        function stopMainPolling() {
+            pollingActive = false;
+        }
+        
+        // HTML 转义函数
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        // 显示用户消息（与原始 webui 一致）
+        function displayUserMessage(messageId, text, attachments) {
+            const messageContainer = document.createElement('div');
+            messageContainer.id = `message-${messageId}`;
+            messageContainer.classList.add('message-container', 'user-container');
+            
+            let attachmentHtml = '';
+            if (attachments && attachments.length > 0) {
+                attachmentHtml = '<div class="message-attachments">';
+                attachments.forEach(file => {
+                    if (file.type && file.type.startsWith('image/')) {
+                        attachmentHtml += `<div class="attachment-item image"><i class="fas fa-image"></i> ${file.name}</div>`;
+                    } else {
+                        attachmentHtml += `<div class="attachment-item file"><i class="fas fa-file"></i> ${file.name}</div>`;
+                    }
+                });
+                attachmentHtml += '</div>';
+            }
+            
+            messageContainer.innerHTML = `
+                <div class="message user">
+                    <div class="message-header">
+                        <i class="fas fa-user"></i>
+                        <span class="message-sender">You</span>
+                        <span class="message-time">${new Date().toLocaleTimeString()}</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-text">${escapeHtml(text)}</div>
+                        ${attachmentHtml}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('chat-history').appendChild(messageContainer);
+            document.getElementById('chat-history').scrollTop = document.getElementById('chat-history').scrollHeight;
+        }
+        
+        // 显示系统消息
+        function displayMessage(text, sender) {
+            const chatHistory = document.getElementById('chat-history');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            const senderIcon = sender === 'user' ? 'fa-user' : sender === 'agent' ? 'fa-robot' : 'fa-info-circle';
+            const senderLabel = sender === 'user' ? 'You' : sender === 'agent' ? 'Agent' : 'System';
+            
+            messageDiv.innerHTML = `
+                <div class="message-header">
+                    <i class="fas ${senderIcon}"></i>
+                    <span class="message-sender">${senderLabel}</span>
+                    <span class="message-time">${new Date().toLocaleTimeString()}</span>
+                </div>
+                <div class="message-content">
+                    <div class="message-text">${escapeHtml(text)}</div>
+                </div>
+            `;
+            chatHistory.appendChild(messageDiv);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        // 输入框处理
+        window.handleChatKeydown = function(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendBoardMessage();
+            }
+        };
+
+        window.autoResizeInput = function() {
+            const textarea = document.getElementById('chat-input');
+            textarea.style.height = 'auto';
+            textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+        };
+
+        // 文件处理
+        window.attachFile = function() {
+            document.getElementById('file-input').click();
+        };
+
+        window.handleFileSelect = function(event) {
+            const files = Array.from(event.target.files);
+            files.forEach(file => addAttachment(file));
+            event.target.value = ''; // 清空选择
+        };
+
+        window.toggleVoiceInput = function() {
+            console.log('Voice input toggled');
+        };
+
+        // 工具函数
+        function generateGUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function initializeBoard() {
+            // 生成新的上下文 ID
+            currentContext = generateGUID();
+            console.log('Board initialized with context:', currentContext);
+            
+            // 启动主轮询系统
+            startMainPolling();
+            
+            // 启动 Board 轮询系统
+            startBoardPolling();
+            
+            // 从服务器加载现有的 board 数据
+            loadBoardFromServer();
+        }
+        
+        // Board 数据轮询系统
+        let lastBoardVersion = 0;
+        let boardPollingActive = false;
+        
+        // 处理 board_output 工具调用
+        function handleBoardOutputTool(log) {
+            console.log('Board output tool called:', log);
+            
+            try {
+                // 尝试解析工具输出中的 board 数据
+                let boardUpdate = null;
+                
+                // 从 log.content 中提取 JSON 数据
+                if (log.content) {
+                    const jsonMatch = log.content.match(/\{[\s\S]*\}/);
+                    if (jsonMatch) {
+                        try {
+                            boardUpdate = JSON.parse(jsonMatch[0]);
+                        } catch (e) {
+                            console.warn('Failed to parse board update JSON:', e);
+                        }
+                    }
+                }
+                
+                // 从 kvps 中获取数据
+                if (log.kvps && log.kvps.nodes) {
+                    boardUpdate = {
+                        nodes: log.kvps.nodes,
+                        connections: log.kvps.connections || {},
+                        viewport: log.kvps.viewport || boardData.viewport,
+                        metadata: log.kvps.metadata || boardData.metadata
+                    };
+                }
+                
+                if (boardUpdate) {
+                    // 更新 board 数据并重新渲染
+                    updateBoardData(boardUpdate);
+                    renderBoard();
+                    console.log('✅ Board updated from tool output');
+                } else {
+                    // 如果没有直接的数据，触发board轮询
+                    console.log('⚡ Triggering board polling...');
+                    pollBoardData();
+                }
+                
+            } catch (error) {
+                console.error('Error handling board output tool:', error);
+                // 发生错误时触发board轮询
+                pollBoardData();
+            }
+        }
+        
+        // Board 数据轮询函数
+        async function pollBoardData() {
+            try {
+                if (!currentContext) return;
+                
+                const response = await fetchWithCsrf('/board_poll', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        context: currentContext,
+                        last_version: lastBoardVersion
+                    })
+                });
+                
+                if (!response.ok) {
+                    console.error('Board poll response not ok:', response.status);
+                    return;
+                }
+                
+                const pollResponse = await response.json();
+                
+                if (pollResponse.has_updates && pollResponse.board_data) {
+                    console.log('📊 Board updates received:', pollResponse.board_data);
+                    
+                    // 更新版本号
+                    lastBoardVersion = pollResponse.version;
+                    
+                    // 更新 board 数据
+                    updateBoardData(pollResponse.board_data);
+                    renderBoard();
+                    
+                    console.log('✅ Board updated from polling');
+                } else {
+                    // 更新版本号但没有实际更新
+                    lastBoardVersion = pollResponse.version;
+                }
+                
+            } catch (error) {
+                console.error('Board poll error:', error);
+            }
+        }
+        
+        // 启动 Board 轮询
+        function startBoardPolling() {
+            if (boardPollingActive) return;
+            
+            boardPollingActive = true;
+            
+            // 定期轮询 board 数据
+            setInterval(async () => {
+                if (!boardPollingActive) return;
+                await pollBoardData();
+            }, 1000); // 每秒轮询一次
+            
+            console.log('📊 Board polling started');
+        }
+        
+        // 从服务器加载 board 数据
+        async function loadBoardFromServer() {
+            try {
+                const response = await fetchWithCsrf('/board_get', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        context: currentContext
+                    })
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.success && data.board) {
+                        updateBoardData(data.board);
+                        renderBoard();
+                        console.log('✅ Board loaded from server');
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading board from server:', error);
+            }
+        }
+        
+        // 更新 board 数据
+        function updateBoardData(newData) {
+            if (newData.nodes) {
+                boardData.nodes = { ...boardData.nodes, ...newData.nodes };
+            }
+            if (newData.connections) {
+                boardData.connections = { ...boardData.connections, ...newData.connections };
+            }
+            if (newData.viewport) {
+                boardData.viewport = { ...boardData.viewport, ...newData.viewport };
+            }
+            if (newData.metadata) {
+                boardData.metadata = { ...boardData.metadata, ...newData.metadata };
+            }
+        }
+        
+        // 渲染整个 board
+        function renderBoard() {
+            const canvas = document.getElementById('board-canvas');
+            
+            // 清空现有节点
+            const existingNodes = canvas.querySelectorAll('.board-node');
+            existingNodes.forEach(node => node.remove());
+            
+            // 渲染所有节点
+            Object.values(boardData.nodes).forEach(node => {
+                renderNode(node);
+            });
+            
+            console.log(`🎨 Rendered ${Object.keys(boardData.nodes).length} nodes`);
+        }
+
+        // 附件管理
+        let attachments = [];
+        
+        function addAttachment(file) {
+            attachments.push(file);
+            updateAttachmentsDisplay();
+        }
+        
+        function removeAttachment(index) {
+            attachments.splice(index, 1);
+            updateAttachmentsDisplay();
+        }
+        
+        function updateAttachmentsDisplay() {
+            const preview = document.getElementById('attachments-preview');
+            if (attachments.length === 0) {
+                preview.style.display = 'none';
+                return;
+            }
+            
+            preview.style.display = 'block';
+            preview.innerHTML = attachments.map((file, index) => `
+                <div class="attachment-item">
+                    <span class="attachment-name">${file.name}</span>
+                    <button class="remove-attachment" onclick="removeAttachment(${index})">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
