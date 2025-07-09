@@ -48,7 +48,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
 
   const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     // Ctrl+Enter 或 Cmd+Enter 发送消息
-    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+    if (e.key === 'Enter') {
       e.preventDefault();
       handleSend();
     }
@@ -175,11 +175,6 @@ const ChatInput: React.FC<ChatInputProps> = ({
                 </Tooltip>
               )}
             </Space>
-          </div>
-
-          {/* 提示文字 */}
-          <div className="text-xs text-gray-400 text-center">
-            按 Ctrl+Enter 发送消息，Shift+Enter 换行
           </div>
         </div>
       </div>

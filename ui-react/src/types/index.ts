@@ -62,12 +62,32 @@ export interface Viewport {
   zoom: number;
 }
 
+// Agent 消息类型枚举
+export type MessageType = 
+  | 'user' 
+  | 'agent' 
+  | 'response' 
+  | 'tool' 
+  | 'code_exe' 
+  | 'browser' 
+  | 'warning' 
+  | 'rate_limit' 
+  | 'error' 
+  | 'info' 
+  | 'util' 
+  | 'hint'
+  | 'system';
+
 // 聊天相关类型
 export interface ChatMessage {
   id: string;
-  type: 'user' | 'agent' | 'system' | 'tool' | 'error';
+  type: MessageType;
   content: string;
+  heading?: string;
   timestamp: string;
+  temp?: boolean;
+  kvps?: Record<string, any>;
+  role?: 'user' | 'assistant' | 'system';
   metadata?: Record<string, any>;
 }
 
@@ -100,20 +120,21 @@ export interface ApiResponse<T = any> {
 export interface MessageRequest {
   text: string;
   context: string;
-  projectId: string;
+  message_id?: string;
+  projectId?: string;
   flowchartContext?: FlowchartData;
 }
 
 export interface MessageResponse {
-  message: string;
+  message?: string;
   context: string;
   flowchartUpdate?: FlowchartMessage;
 }
 
 export interface PollRequest {
   context: string;
-  log_from: number;
-  timezone: string;
+  log_from?: number;
+  timezone?: string;
 }
 
 export interface PollResponse {
@@ -121,6 +142,7 @@ export interface PollResponse {
   contexts: string[];
   tasks: any[];
   logs: any[];
+  data?: any[];
   log_guid: string;
   log_version: number;
   log_progress: number;

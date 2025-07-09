@@ -107,7 +107,7 @@ export const chatAPI = {
   getChatHistory: async (contextId: string): Promise<any[]> => {
     try {
       const response = await api.post('/history_get', { context: contextId });
-      return response.data.history || [];
+      return JSON.parse(response.data.history);
     } catch (error) {
       console.error('Failed to get chat history:', error);
       throw error;

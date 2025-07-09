@@ -153,14 +153,10 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
       </div>
 
       {/* 消息列表区域 */}
-      <div className="flex-1 overflow-hidden">
+      <div className="flex-1 flex flex-col min-h-0">
         <ChatMessageList
           messages={messages}
           loading={loading.isLoading}
-          onCopyMessage={(content) => {
-            navigator.clipboard.writeText(content);
-            message.success('已复制到剪贴板');
-          }}
         />
       </div>
 
