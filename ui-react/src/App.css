@@ -1,0 +1,69 @@
+/* App specific styles */
+.App {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* Ant Design customizations */
+.ant-layout {
+  min-height: 100vh;
+}
+
+.ant-layout-header {
+  padding: 0;
+}
+
+.ant-layout-sider {
+  background: #fff !important;
+}
+
+.ant-layout-content {
+  background: #f5f5f5;
+}
+
+/* Project card styles */
+.project-card {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+}
+
+.project-card .ant-card-actions {
+  background: #fafafa;
+  border-top: 1px solid #f0f0f0;
+}
+
+.project-card .ant-card-actions > li {
+  margin: 0;
+  padding: 12px 16px;
+}
+
+.project-card .ant-card-actions > li:not(:last-child) {
+  border-right: 1px solid #f0f0f0;
+}
+
+/* Loading states */
+.ant-spin-container {
+  min-height: 200px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ant-layout-header {
+    padding: 0 16px;
+  }
+  
+  .project-card {
+    margin-bottom: 16px;
+  }
+}
+
+/* Dark mode support (future) */
+@media (prefers-color-scheme: dark) {
+  .App {
+    background-color: #141414;
+  }
+}
