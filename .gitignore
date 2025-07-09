@@ -58,3 +58,8 @@ instruments/**
 agent_history.gif
 
 .specstory/**
+
+webui/public/files
+
+# contain api key, ignore temporarily
+docker/run/docker-compose.yml
